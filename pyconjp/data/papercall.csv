@@ -1,0 +1,1012 @@
+title,description,audience_level,talk_format,tags
+1次元畳み込みフィルターを利用した音楽データのオートエンコーダ,"# 概略
+音楽の楽譜データであるmidiファイルをもとに音楽を自動生成するという試みは、すでにGoogle Magenta にて実施されている。
+しかし、midiではなく、mp3やma4などの音響データで音楽が配布されたり取得されたりする場合が多い。
+録音データをmidiに変換する自動採譜の技術もあるが、これも完璧ではない。
+
+そこで今回、音響データを符号化し、midiのように扱いやすいデータに変換した上で、
+音楽自動生成へとつなげていきたいと考えた。
+
+# 実装
+
+Pythonには、データの符号化、つまりオートエンコーダを生成するための機械学習ライブラリが潤沢に用意されていることに加え、
+Pythonでは音響データの一つである.wavファイルを取り扱える関数がネイティブに提供されているため、本テーマを扱うのに最適な言語である。
+pythonにおけるwavデータは以下のように扱える
+
+import wave  
+wavfile = 'sample.wav'  
+wr = wave.open(wavfile, ""rb"")  
+origin = wr.readframes(wr.getnframes())  
+data = origin[:44100 * 2 *  180] # 180sec  
+wr.close()  
+
+
+このようにして得られた音響データをオートエンコーダにかける。
+音響データは時系列データの波形データとして得られるのだが、
+より波形としての特徴を色濃く表現したいと考えたため、
+一次元の畳込みフィルターを採用したオートエンコーダを考案した。
+
+一次元畳み込みフィルターの構築は単純で、Kerasを利用して次のように書くことができる。
+
+
+from keras.models import Sequential, load_model  
+from keras.layers import Dense, Flatten, Reshape  
+from keras.layers.noise import GaussianNoise  
+from keras.layers.convolutional import Conv1D, UpSampling1D  
+from keras.layers.pooling import MaxPooling1D  
+
+model = Sequential()  
+model.add(Conv1D(4, 7, strides=7, padding='same', input_shape=(44100, 2), activation='relu'))  
+model.add(UpSampling1D(7))   
+model.add(Conv1D(4, 7, padding='same', activation='relu'))  
+model.add(Conv1D(2, 8, padding='same', activation='tanh'))  
+
+
+ここではPooling層を使わずにstridesを利用して次元削減を実行している。
+
+# 解釈
+
+上で述べたオートエンコーダは次のようにエンコーダとデコーダに分離される
+
+
+encoder = K.function([model.layers[0].input], [model.layers[0].output])  
+decoder = K.function([model.layers[1].input], [model.layers[3].output])  
+
+
+この時、`encoder`は音響データを機械が音楽を理解しやすい形に変換していることになる。
+エンコードされたデータから音響データが再現できるのであれば、
+エンコードされたデータは一種の楽譜のようなものであり、`encoder`は採譜機となる
+また、エンコードデータから音響データを再現する`decoder`は音源として解釈することができる。
+
+# まとめ
+
+- 音響データを種とした音楽自動生成ツールを作りたい
+- そのためには大きなデータ次元を持つ音響データを扱いやすい形にする必要がある
+- 今回、音響データのオートエンコーダを一次元畳み込みフィルターを利用して実装した
+- 音響データをエンコードしたものは機械が解釈できる楽譜であると考えることができる",All,Talk (30 minutes),"Keras, MachineLearning, music"
+Adding JWT Authentication to Python and Django REST Framework Using Auth0,"Authentication is one of the big parts of every application. Security is always something that is changing and evolving.  Basically, we'll use the djangorestframework-jwt package for adding JWT authentication as you would normally do except that we'll change JWT_AUTH to use Auth0. 
+
+The talk will cover the following points:
+
+* How to create a virtual environment, install Django and the other dependencies
+* How to create an Auth0 API
+* How to integrate Auth0 JWT authentication with Django
+* Using Auth0 Rules for detecting signup
+* How to add some Django views for testing JWT
+* How to use Postman for testing JWT authentication with Auth0
+
+In the talk, we will learn how to use Auth0 to enable authenticated-only sections within a web application, as well as to retrieve protected resources and audiences have lots of opportunities to ask questions both technical and non-technical.",All,Talk (30 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Python in education science and maths, Packaging"
+メルカリにおける AI 活用事例,"* AI 活用事例のかんたんな説明
+* 内製の機械学習基盤の説明
+* 違反出品検知についての詳しい説明
+* 画像検索についての詳しい説明",All,Talk (30 minutes),"Python, Go, AI, Machine Learning"
+AltJSとしてのPython - フロントエンドをPythonで書こう,"# 概要
+
+Python3をJavaScriptに変換する[Transcrypt](https://www.transcrypt.org/)を取り上げます。Transcryptに興味を持っていただき、今後のAltJSの選択肢の一つに入れていただくことがこのセッションの目的です。
+
+前半は、Transcryptを利用するための環境構築の方法、ツールの実際の使用方法を解説します。単にコマンドを羅列するだけでなく、さまざまなコードの変換前後を比べることで、より良い書き方を知っていただければと思います。
+
+後半は、jQuery、Vue.js、React NativeなどのJavaScriptライブラリとの連携方法を解説します。あわせて、連携するにあたって意識しなければいけないことや、私が今までに踏み抜いた地雷を回避する方法もお伝えします。
+
+今年のPyCon JPのテーマは「広がるPython」です。サーバーサイド開発、データ解析、機械学習などで実績のあるPythonの世界を、Webフロントエンドやスマートフォンアプリケーションに広げてみましょう。
+
+# 目次(仮)
+
+- 環境の構築
+- 変換後のJavaScript
+- 対応している文法
+- jQueryとの連携
+- Vue.jsとの連携
+- React Nativeとの連携",Beginner,Talk (30 minutes),Web programming including frameworks (Django / Flask / Pylons etc.)
+Applying serverless architecture pattern to distributed data processing,"Serverless architectures refer to applications that significantly depend on “cloud” services (knows as Backend as a Service) or on custom code that’s run in ephemeral runtime (Function as a Service or “FaaS”).
+
+To application developers, “serverless” mean app where some certain logic of it is still written by the developer but unlike traditional architectures or microservices is run in stateless compute runtime that is event-triggered, may only last for one invocation, and fully managed by a cloud. Serverless helps developers to transfer responsibility of keeping their apps up and running as well as scaling out their workload capacity without involving DevOps/Ops as we got used to.
+
+In this talk we will go through whole “serverless” thing: from decomposing app and its logic to microservices and further to smaller bits, i.e. functions to defining data flow through functions and building their fault-tolerant pipeline.
+
+Moreover, we will go through the demo that highlights key takeaways:
+
+* how to design scalable architecture without getting into troubles by hitting concrete bottlenecks
+
+* how to combine multiple programming languages into a single app
+
+* why Go and Python are the ones of the best programming languages designed exactly for serverless
+",Intermediate,Talk (45 minutes),"Go, Golang, Python, serverless, computing, distributed, Architecture/Design Patterns, AI/ML/Research, APIs/MicroServices, Network programming, Programming tools, Packaging"
+Becoming a Multilingual SuperHero in Django,"You have got this super awesome REST API served through Django/DRF based project and suddenly these requirements come in:
+
+We need to have a local support for the Japanese language!
+
+In case, you've not written your application with localization and internationalization in mind, then  ""Boy! You're in danger! You should better start praying to almighty to give you strength and endurance to support yet another language in your app"".
+
+In this talk, we'll see how do we support localization and serve our app in different languages, based on what language the client wants to communicate in. As a backend, we should be language agnostic and allow all clients to communicate with us in one of the languages we support.
+
+We'll see how to support translation for static data (using makemessages / compilemessages) and dynamic data, using various third-party services such as django-translations and transifex.
+
+Here, static data is translations for all the fields, error messages etc. that the app already has and dynamic data is the custom data input by the user in the app.
+
+This would enable you to have your admin panel, as well as RESTful APIs, served in different languages.
+",All,Talk (30 minutes),"Django, REST, API, localization"
+Build text classification models ( CBOW and Skip-gram) with FastText in python,"FastText has been open-sourced by Facebook in 2016 and with its release, it became the fastest and most accurate library in Python for text classification and word representation. It is to be seen as a substitute for gensim package's word2vec.  It includes the implementation of two extremely important methodologies in NLP i.e Continuous Bag of Words and Skip-gram model. Fasttext performs exceptionally well with supervised as well as unsupervised learning. 
+
+The tutorial will be divided in following four segments :
+
+1. 0-10 minutes: The talk will begin with explaining the difference between word embeddings generated by word2vec, Glove, Fasttext and how FastText beats all the other libraries with better accuracy and in lesser time.
+
+2. 10-30 minutes: The code will be shown and explained line by line for both the models (CBOW and Skip-gram) on a standard textual labeled dataset with the tips on hyper-parametric tuning to get the best possible results.
+
+3. 30-40 minutes: How to use the pre-trained word embeddings released by FastText on various languages and where to use them. Various use cases of what kind of problems can be solved using FastText in python.
+
+4. 40-45 minutes: For QA session.",All,Talk (45 minutes),"open source, facebook, machinelearning, python, wordvector, skipgram, data science, deeplearning, fasttext, naturallanguageprocessing"
+Creative Music Applications in Python,"### Creative Music Applications in Python
+We are lucky to live in times when Python is the go-to programming language for machine learning,  neural networks research, web applications, as well as for developments of generative media and digital art. Using a wide variety of Python open-source packages and RNN models, the Python community is now becoming the center stage for experimental media projects and creative applications.  
+  
+The goal of this talk is to introduce attendees to the increasing variety of packages and pre-trained machine learning models for audio analysis, music creation, and text generation, that is now available in Python!  
+  
+### Talk Overview
+The talk will start with a presentation of Dror's recent award-winning project, [Soundscape](http://www.soundsca.pe) -  An online platform, that allows music lovers to record loops, and sync them with music by other people around the world automatically.  
+  
+We will breakdown Soundscape's building blocks and see how to use audio analysis Python packages, such as [LibROSA](https://librosa.github.io/librosa/index.html) and [madmom](http://madmom.readthedocs.io/en/latest/index.html) (Recurrent Neural Network). Furthermore, we will learn how to overcome the challenges of serving these type of applications using the [Django Web Framework](https://www.djangoproject.com/).  
+  
+Then, we will talk about easy ways to build similar applications using Python packages, such as [AudioOwl](https://github.com/dodiku/audioowl) and [MixingBear](https://github.com/dodiku/MixingBear), which were created recently by Dror Ayalon.  
+  
+![AudioOwl.py and MixingBear.py](https://s3.amazonaws.com/soundscape-images-dev/AudioOwl_MixingBear.png)
+  
+Following the project presentation, we will review a few other Python open-source projects and tools, such as Google Magenta's Recurrent Neural Networks for generative music, WaveGAN for generative raw audio, and textgenrnn for text generation.  
+  
+We will wrap-up with a few interesting projects to burst our inspiration!  
+  
+### About The Speaker
+[Dror Ayalon](https://www.drorayalon.com) is a software engineer, product manager, and interaction designer. He researches and develops innovative music creation tools, using music information retrieval (MIR) techniques, digital signal processing (DSP), and machine learning algorithms, that will allow musicians to compose music in a variety of new ways and formats. Dror recently received his master's degree from NYU and now works full time for the Google Creative Lab in NYC.",All,Talk (30 minutes),"audio, music, machine learning, dsp, generative music, neural networks, rnn, recurrent neural network, sound, art, creative, django, web, signal processing"
+Crossing the Python 3 Rubicon,"Tick, tock, tick, tock! The clock is ticking for Python 2, as we're getting close to its sunset in 2020. Targeted at engineers that want to make the switch to Python 3, but don't know exactly where to start, this talk will introduce best practices that were already used at various companies, and I'll emphasise the strategies that we're using successfully at Zapier to move a big Python codebase to Python 3 (around 500k lines of code). I'll also provide examples that we encountered on how things went wrong with our migration, from decreased performance due to decoding at the Python level to subtle bugs caused by different semantics between the two versions. We're going to see a couple of best practices, tools and utilities that you can use to have a sane switch to Python 3 as soon as possible!
+
+",Intermediate,Talk (45 minutes),"Python 3, Best practices"
+C拡張と共に乗り切るPython 2→3移行術,"本セッションでは、まず冒頭で
+
+ - Python 2のEoLとPython 3移行の現状
+
+を弊社のケースを交えて紹介します。
+次に、
+
+ - C拡張の書き方で2/3間の互換性がない部分
+ - その間をどう埋めていったか
+
+を順を追って解説します。
+Cが済んだら、
+
+ - sixによるPythonコードの2/3互換化
+ - C拡張とPythonを結合して遭遇したエラーと対応策
+ - 発展例: DEBパッケージ化
+
+について発表し、まとめに入ります。",Advanced,Talk (30 minutes),"Anything else basically which doesn’t really fall into the types of topics above, Python Core"
+Detecting offensive messages using Deep Learning: A micro-service based approach,"This talk focuses on :
+
+- The shortcomings / common pitfalls of current approaches in terms of:
+  - Functionality
+  - Scalibility
+- Handling the ambiguities in defining offensive content
+- Using a Deep Learning based approach to detect offensive content
+- Production-izing the solution
+",All,Talk (30 minutes),"python, deep learning, machine learning, data science, devops, neural networks, microservice, containers, Web programming including frameworks (Django / Flask / Pylons etc.), Machine learning and data science, Fintech"
+Djangoだってカンバンつくれるもん(Django Channels + Vue),"Django Channels 2.1系とVue.js + Vuexを使用して複数ブラウザでリアルタイムに同期するいわゆるカンバンアプリケーションを作成した際の流れを振り返りながらChannelsの紹介や、Vue.jsとの組み合わせの実践的な内容をコードを含めて紹介します。
+
+* Django Channelsの概要
+* Django Channelsの基本概念
+    - asgi
+    - routing
+    - consumer
+* 本番でのアプリケーションサーバ選定(not uWSGI, use daphne)
+* Vue.js + VuexでのWebsocket利用方法(vue-native-websocket)
+* vue-native-websocketを踏まえた実践的なConsumerの実装方法
+* pytestでConsumerのテストをする方法
+
+",Beginner,Talk (45 minutes),"Django, Python, websocket, Vuejs, Vuex"
+DjangoではじめるPyCharm実践入門,"PythonのWebフレームワークといえばDjangoが挙げられます。またPythonのIDEといえばPyCharmです。
+
+Pythonの開発をサポートするエディタや統合開発環境はさまざまですが、PyCharmはその中でも使いやすいツールの一つです。
+Python開発者にとって幅広い必須となるツールを提供し、生産的なPython開発とWeb開発のための便利な環境を作り出します。
+
+すでにVimやEmacs, VSCodeなどのツールに慣れていると新しいツールを使うのが億劫になったり、
+PyCharmが提供してくる機能の多さにはじめはなにをしたらいいのかわからなくなることがあるかもしれません。
+しかし使っていくと手放せないツールになっていきます。
+
+ここではDjangoを題材にして、そんなPyCharmの便利なポイントや使い方を紹介します。
+
+## 取り上げる題材
+
+- インテリジェントなコード補完
+- デバッグ機能
+- リモート連携 (SSH, Vagrant, Docker)
+- データベース連携
+- バージョン管理システムとの連携
+- JavaScriptおよびその他の言語
+- etc...
+
+## 対象者
+- PyCharmを使ってみたいがどうやって使っていったらいいかわからない人
+- 普段からPyCharmを使っているが、もっと使いこなしたい人
+- 他に使い慣れているツールがあるが、PyCharmもおさえておきたい人
+",All,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Best practices, Programming tools"
+Django REST Framework におけるAPI実装プラクティス,"Django REST Frameworkの公式ドキュメントは、非常にわかりやすくまとまっていますが、実際に業務で使おうとすると考えないといけないことはまだまだあります。1例を次に示します。
+
+* 一般ユーザーにAPIを公開する場合、大量のAPIリクエストを送るユーザーがいたらどうすればいいか. 真面目に全部答えていると1人のクライアントだけでサーバーを落とすことも難しくないケースもあります
+* 違和感のないページネーションはどのように実現するか
+* ソーシャル認証や権限管理は、APIではどのように実装すればいいか
+
+こういったドキュメントには詳しく書かれていない実装プラクティスや注意点を解説していこうと思います。本セッションで扱うテーマは次のとおりです。
+
+* APIにおける認証と権限管理
+* バージョニング
+* ページング (カーソルページネーション)
+* 公開APIのリクエスト制限
+* Error時の扱い
+* Filtering や Ordering
+* APIドキュメンテーション
+",Intermediate,Talk (45 minutes),"Django, DjangoRESTFramework, Web"
+Django を Zappaで構築してServerless Python のベストプラクティスを探る,"## 概要
+開発したアプリケーションをいかに素早くユーザーに届けるか、ということを考えたときに、今考えられるアーキテクチャの有力な選択肢の一つがサーバーレスです。
+Python の Webフレームワークとサーバーレスアーキテクチャの組み合わせにおいては、  Zappa (https://github.com/Miserlou/Zappa) ほど多機能で柔軟に利用できるサーバーレスのフレームワークはありません。Zappaが何をやっているかを、Zappaで何ができるのかを紐解き、Zappa + Django や、 Zappa + Flask などの事例をもとに、これまでのWeb開発がどう変わるのか、どういう場面で有効活用できるか、サーバーレスは今後どうなっていくのか、などを話します。
+
+## コンテンツ予定
+- サーバーレスについて
+- Zappaは内部で何をやっているのか
+- Zappaで出来ることはなにがあるか
+- Zappa と Pythonフレームワークの組み合わせによって、これまでとどう変わるのか
+- サーバーレスの今後の展望",Intermediate,Talk (30 minutes),"Django, Flask, Best practice, FIntech, Infra, Serverless, AWS, lambda"
+Djangoアプリケーションにおけるトイル撲滅戦記,"1. 前史
+    - トイル撲滅前のDjangoアプリケーションについての紹介
+
+2. 運用における問題点
+    - トイル撲滅前の運用における問題点についての紹介
+
+3. SREとは
+    - SREについての紹介
+    - Site Reliability向上におけるアプローチの紹介
+
+4. トイル撲滅戦略
+    - 具体的な技術的アプローチについての紹介
+
+5. 効果
+    - トイル撲滅による効果の紹介
+
+6. まとめ
+
+関連書籍
+---
+[Site Reliability Engineering](https://landing.google.com/sre/book/index.html)",All,Talk (45 minutes),"Python, Django, AWS, GitLab, Docker, SRE"
+From Data to Web Application: Anime Character Image Recognition with Transfer Learning,"Deep learning is a booming machine-learning technique which we often read in a lot of articles nowadays. Deep learning sounds like an intimidating concept for a lot of people, but everyone believes that deep learning is a cutting-edge tool to solve a lot of problems. In this talk, we will see how Python and various open-source tools are very easy to use and very powerful for solving deep learning problems. For the study case, we will have a 30-minute journey in revisiting image recognition problem with anime characters.
+
+I will briefly explain how traditional machine learning works with TensorFlow and introduces some alternatives tools out there. After that, we will see how deep learning enhances our knowledge in the traditional machine learning and how we can get more benefits from it. All of these examples will be presented in the context of image recognition problem, and while on it, we will also see the use cases of other tools, such as OpenCV, OpenFace, etc.
+
+In the main part of the talk, we will see that images of anime characters are limited by nature, since it totally depends on number of existing fan arts. In addition, 3D model (human face) cannot be applied directly in solving this problem since 2D model (anime character face) totally depends on the illustrator. Therefore, we will explore how we can utilize transfer learning for model training with small amount of dataset. Finally, we will build our own simple app with Sanic to serve our ready-built model for other users.
+
+This talk will introduce the concept of deep learning, transfer learning, and how we can apply it to our own existing problems. In addition, we will present some alternative PaaS as a comparison to build a model from scratch.",Intermediate,Talk (30 minutes),"python, machine learning, deep learning, transfer learning, image recognition, Machine learning and data science"
+Fun with Python and Kanji,"The presentation will have approximately 3 parts. First, I will briefly talk about what ideograms are, what they look like, and most importantly, how they can be broken down into smaller, finite components that are sometimes called radicals [1]. I will show how this can be done with Python and several existing datasets. The first part can take around 5 minutes.
+
+[1] https://en.wikipedia.org/wiki/Radical_%28Chinese_characters%29
+
+Next, I'll give a basic introduction to graph theory. Nodes, edges, graphs/digraphs, connected components, centrality, etc. I will show examples using networkx, a common Python library for working with graphs. The second part can take around 5 minutes.
+
+Using the material from the previous sections, I will frame the ideograms as a graph problem. Each ideogram is a node, and edges connect ideograms that share common radicals. I will use this graph demonstrate interesting, helpful, and sometimes amusing relationships between the ideograms. For example, what are the most similar (difficult to distinguish) ideograms? What are most commonly occurring radicals? How does changing a radical affect the ""meaning"" of an ideogram? The third part will take around 10 minutes.
+
+I will conclude with a summary and some potential future work.",All,Talk (30 minutes),Python in education science and maths
+HomeSecurity with Python,"ホームセキュリティと言われてぱっと思いつくのは「鍵」「防犯カメラ」「盗難防止アラーム」などがセオリーでしょう。
+
+しかし、`鍵はスマートロックを買えば良いし、他も探せば売ってるから買えば良い。`という答えが出てしまえばこのトークはココで終了です。
+
+私も色々とIoTガジェットを物色しましたが、発展途上の為か`かゆい所に手が届かない`という部分が目立つように感じました。
+
+このトークでは
+
+* AWS
+* RaspberryPi
+
+といったオーソドックスなプラットフォームを軸に
+
+* IoTの身近な活用事例
+* 自宅のセキュリティをPython x IoTで構築する
+* かゆいところに手が届く機能は実装できるか
+* 技術・時間・予算の関係上実装するのが難しいもの
+* 取得したデータをWebで可視化、コミュニケーションツールでの活用する方法
+
+等を実例を元に解説します。
+
+尚、話さない項目は以下になります。
+
+* IoTのふか〜い話
+* 機械学習などを用いた応用術",Beginner,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Python libraries extending and embedding python in hardware"
+How to Data Wrangling? Tips for using python libraries for big-data analysis including scikit-learn.,"I would like to talk about the below topics relating to algorithms for data analysis. 
+
+My talk assumes the audience are intermediate Python users or professional data analysts. 
+
+1.	LOGISTIC REGRESSION
+I would like to explain about SAGA algorithm first. The SAGA algorithm, which is faster than other algorithms, is implemented in scikit-learn recently. 
+
+2.	SVM
+The SVM methods are algorithms which are known as very slow (e.g. O(n_samples2∗n_features)). Here, I would like to present a few methods and packages for faster SVM analysis (i.e. Stochastic Gradient Descent / ThunderSVM / LiquidSVM)
+
+3.	CLUSTERING
+The DBSCAN algorithm is popular recently, therefore I will discuss about it and other relating algorithms (e.g. HDBSCAN, Minibatch, GMM, affinity propagation clustering, etc.) 
+
+4.	Random Forest
+The method combining Random Forest with Boosting is called XGBoost. Microsoft recently developed the library called LightGBM which is faster than XGBoost. I will explain about it for our audience.
+",Intermediate,Talk (30 minutes),"Machine learning and data science, Best practices, Python libraries extending and embedding python in hardware"
+Integrate Full-text Search service with Django,"本セッションでは、全文検索システムである Elasticsearch をプロダクトに導入するうえでの課題やプラクティスについて発表します。発表する内容は、株式会社SQUEEZEで Django REST Framwork をベースに実装されたプロダクトに Elasticsearch を組み込んだ実例と経験を元にしています。
+
+## 検索機能をサービス指向で設計する
+
+情報も採用事例も多い Elasticsearch ですが、稼働中のプロダクトに導入する場合、どのような単位で検索機能を実現していくかという点が課題になります。本セッションでは、Elasticsearch による検索機能をビジネス要件に合う「検索サービス」として定義する方法を提案します。これが1つ目の Agenda です。
+
+## よりよいデータの同期を目指して
+
+2つ目の Agenda はデータの同期です。稼働中プロダクトの場合、サービスのデータは既に Relational Database で管理されています。既存データを Elasticsearch にどのように同期するか、あるいは同期するべきなのかという点はしばしば課題になります。本セッションでは、この課題へのソリューションとしてバッチ処理 + リアルタイム処理のハイブリッドな同期方法を提案します。
+
+## Elasticsearch を Python / Django から利用する
+
+Django REST Framework で構成された Web アプリケーションから Elasticsearch を利用するには、どのような方法があるでしょうか。Elasticsearch のもつ豊富な Query Pattern をどこまで活用できるでしょうか。本セッションでは、全文検索システムに期待される柔軟性を確保しつつ、検索サービスを RESTful API の 1つとして実装するためのいくつかの Tips を共有します。",Intermediate,Talk (45 minutes),"Python, Elasticsearch, Django"
+Interactive Network Visualization using Python 〜 NetworkX + BokehでPEPの参照関係を可視化する,"# 目的 ：このセッションを聞くと何が得られるの？
+- Pythonでグラフ構造のインタラクティブな可視化を実現する手段のひとつとして、NetworkXとBokehを組み合わせる方法を紹介します。
+
+# 動機：なぜ、この発表をするの？
+- SNSの友達関係や論文の引用関係など、世の中には何かと何かの「つながり」の構造がたくさん存在します。このようなグラフ構造（ネットワーク構造）を可視化するライブラリやツールは各種ありますが、普段Python を使っている立場からすると、前処理から可視化までPythonで一気通貫できると嬉しいものです。
+- Pythonでグラフ構造を扱えるライブラリ・NetworkXは、昨年2017年に約7年ぶりのメジャーバージョンアップをしましたが、現在市販されている書籍では最新バージョンを扱った紹介例があまりありません。
+- また、インタラクティブな可視化ライブラリであるBokehは、昨年リリースされたバージョン0.12.7でグラフ構造をサポートするようになりましたが、これも公式サイト以外になかなか日本語の情報がない状況です。
+- 本セッションでは、NetworkXとBokehを使った可視化のノウハウをコードを交えながら共有します。
+
+# アウトプット: 具体的に、どんなものが作れるようになるの？
+NetworkXとBokehを組み合わせることで、以下のようなWebページを作れるようになります。   
+[DEMO(動画)](https://youtu.be/tIRxJxiOrGA)   
+※ 画面は2018年1月時点のプロト作成中の画面であり、実際のセッションで紹介する最新版とは異なる可能性があります。",Beginner,Talk (30 minutes),Machine learning and data science
+Interactive Python Dashboards with Plotly and Dash,"Before We talk about Plotly and Dash, We start with the question of what libraries already exist to visualize data with Python.
+1. Matploltlib
+Matplotlib is the kind of grandfather of all data visualization libraries in Python. It was modeled after Matlab and have similarities syntax with Matlab. You can create almost any plot type, but it is going to be for static image files.
+2. Seaborn
+Seaborn actually using Matplotlib on the back end. It designed to create a nice looking statistical plot. Seaborn has cleaner syntax and you can really do nice plots in one line, but once again it is only for static image files.
+3. Plotly
+Plotly is the general data visualization library focused on interactive visualizations. Plotly has libraries for Javascript, React, R and Python, but the most popular version is the Python library. How is Plotly different than Matplotlib and Seaborn? Plotly creates interactive plots as HTML file. You can actually do things like zoom in, select, and hover. But We can't really be connected with changing data sources.
+4. Dash
+Dash is an open source library from the same creator of Plotly that allows you to create a full dashboard with multiple components, interactivity, and multiple plots. Instead of creating HTML file, Dash will produce a dashboard web application. You can then visit and interact with this dashboard in the web application.
+
+So,  in this talk, we will look at how we create a full web dashboard web app using Dash. To fully understand Dash, we should first get comfortable with Plotly",Intermediate,Talk (30 minutes),"Data, Dashboards, React, Flask, Pandas, NumPy, Data Analysis, Business Intelligence, Data Science, Machine learning and data science, Web programming including frameworks (Django / Flask / Pylons etc.)"
+"Interpretable Machine Learning, making black box models explainable with Python!","Ever wonder how a Machine Learning model makes predictions? In particularly a 256-layers deep neural network! How does it distinguish a corgi from a husky puppy? Come to my talk and I'll enlighten you by demystifying black-box ML models with some Python magic!
+
+Machine learning models are increasingly complex due to the advancements of model architectures such as deep neural networks and ensemble models. While these sophisticated models have achieved higher accuracy, they are like black boxes which how the decision was made couldn’t be fully understood. There are potential risks of misrepresentation, discrimination or overfitting. Furthermore, the need of interpretability is crucial to gain the trusts of regulators and users towards ML models. 
+
+In this talk, I will first address the some common questions: What makes a model interpretable? Is non-linear, non-monotonic model explainable? What’s the difference between global vs local interpretability?
+I will introduce several techniques that make black-box models more interpretable. Follows by walkthrough of a Python library that could introduce interpretability within few lines of codes. Real-world examples of interpretable ML models on various applications such as computer vision, natural language would also be showcased. 
+",Beginner,Talk (30 minutes),"Machine learning and data science, Best practices, machine learning, deep learning, python"
+Jupyterで広がるPythonの可能性,"### 【基本】Jupyterの基本機能をおさらいする
+
+Jupyter Notebookとはどのような機能をもっているのか、効率的に操作するにはどうすればよいかなど、改めて復習します。
+
+### 【厳選】マジックコマンド、Jupyter拡張機能
+
+定番のものからあまり知られていないけど便利なものまで、活用したい機能を一挙に紹介します。
+
+### 【描画】IPython.displayを使いこなす
+
+HTMLや動画など、さまざまな形式で出力できます。テンプレートエンジンなどを活用すると更に便利になります。
+
+### 【対話】ipywidgetsでUIを実装する
+
+UIを実装することでデータの可視化などの利便性がよくなります。
+
+### 【発表】Jupyterでプレゼン資料を作るためのTips
+
+デフォルトのスライド機能だけではなく、拡張機能などを使いこなすことでスライドの表現力が向上します。Jupyterでプレゼンを行うに当たって、さまざまなテクニックを紹介します。
+
+### 【公開】Jupyter Publishing
+
+Notebook形式(ipynb)のまま、Webサイトやドキュメントが作成できます。いくつかのツールを紹介しつつ、ブログや執筆にJupyterを使う方法を紹介します。
+
+### 【共演】便利なライブラリ、関連サービス
+
+サードパーティ製のパッケージをインストールすることで、更に便利な機能や用途の幅が広がります。  
+Colaboratoryやbinderなど、Jupyterに関連した便利なサービスを厳選して紹介します。",All,Talk (30 minutes),"Jupyter, data sicence"
+JVM上で動くPython3処理系cafebabepyの実装詳解,"# cafebabepyというJVM上で動くPython3処理系の実装詳解
+cafebabepyというJVM上で動くPython3処理系を実装しています。
+本セッションではPython3の言語仕様に悪戦苦闘し、どのように実装していったのかをお話します。
+cafebabepyを実装していく中で、言語実装の苦しさや楽しさ、そしてPythonの美しい言語設計、処理系がどのように動いているかについてを共有をしたいと考えております。
+cafebabeとはJavaクラスファイルのマジックナンバーです。 JVM上で動くJythonは2.7(2015年)で更新が止まっているため、じゃあ作るか！ というのが実装している理由です。
+
+## 基本的な流れ
+1. PythonのAST(抽象構文木)を作成する話。
+1. ASTから実際に処理を実行する話。
+1. PythonとJavaの境界線の実装。
+1. 実装における躓きポイント。
+1. Pythonのちょっとだけ深い言語仕様。
+ 
+上記以外に関係のある小ネタがあれば入れます。  ",Intermediate,Talk (45 minutes),Anything else basically which doesn’t really fall into the types of topics above
+Make a Drone using RaspberryPi and Google VoiceKit by Python,"### 1.Self-introduction
+I will talk introduction.  
+
+### 2.About Drone
+I will explain the drones easily this section.   
+
+### 3.What you can do with Drone
+Explain what you can do with the drones, what you can do with what you created this time.  
+
+### 4.Description of RaspberryPi and Google VoiceKit
+I will tell you my tools.  
+
+### 5.How to made it
+I will tell you how to produce the aircraft.  
+
+### 6.Python code
+I will talk about the description of the library I used.  
+
+### 7.Flying demonstration:
+I will try this time.  ",All,Talk (30 minutes),Python libraries extending and embedding python in hardware
+Migrating from Py2 application to Py3: first trial in MonotaRO / Python2 から Python3 への移植: MonotaRO での取り組み,"In this talk, I'll share my story of migrating Py2-based software to Py3 in MonotaRO.
+MonotaRO is fast-paced growing EC company of industrial supplies.
+At startup, MonotaRO employed Python 2 as main language to develop EC website as well as backend enterprise system.
+Now we have many web-based apps or batches works on Python 2.7.
+With upcoming total retire of Py2 in 2020, MonotaRO started migrating existing core application to Py3.
+The talk will include how we tried Py3 migration, what happend: troubles, findings and gifts and current status of migration.
+
+最初に、MonotaRO における Python の利用状況について簡単に紹介します。
+MonotaRO は 10年以上にわたって Python2 ベースで自社システムの開発を続けてきており、その中で使われている技術要素にどのような課題が生まれているか、Python3 化にどう影響しているかを話します。
+
+次に、最近のプロジェクトで実施された既存ソフトウェアの Python3 への移行の取り組みについて話します。Python2 と 3 の間での非互換性からどのような改修を行う必要があったか実例に基づいて紹介します。
+
+最後に、現在の移行状況と見通し、移行範囲を拡大していく上でどのように作業の効率化や品質担保を図っていくか、移行によって得た知見をお話しします。
+",All,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Anything else basically which doesn’t really fall into the types of topics above"
+niconicoにおけるコンテンツレコメンドの取り組み,"# niconicoにおけるコンテンツレコメンドの取り組み
+
+本トークでは、niconicoサービスを支えるレコメンダーの開発および運用から得られた知見をご紹介します。
+
+大きく分けて2つの内容から構成されます。
+
+## レコメンダーの開発・運用方法
+
+1つ目のレコメンダーに関する内容では、データの収集、機械学習のための前処理、機械学習それ自体などが含まれます。
+キーワードとしては、
+
+- Spark
+- scikit-learn
+- Jubatus
+
+などが挙げられます。
+
+niconicoを支えるためのレコメンダーがどのように作られているのか、が焦点となります。
+
+## 大規模なリクエストを捌くシステムの開発・運用方法
+
+2つ目は、1で作成したレコメンダーをniconicoサービス内で本番運用するシステムの開発や運用方法について紹介します。
+キーワードとしては、
+
+- Tornado
+- Docker
+- kubernetes
+- Ansible
+- DataDog
+
+などが挙げられます。
+
+Pythonを利用して、どのように
+
+- 大規模なリクエストを処理し、ユーザーに価値を届けているのか
+- 機械学習の""鮮度""を保っているのか
+- 効率的な開発サイクルを回しているのか
+
+など、ニコニコサービス内での知見を共有します。",All,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Machine learning and data science, Project case studies"
+Notebook as Web API: Turn your notebook into Web API,"Jupyter Notebookはデータサイエンスの分野で広く利用されるようになり、素早くインタラクティブに予測モデルをつくれるようになりました。
+しかし、予測モデルは作って終わりではなく、エンドユーザがAIによる価値を得るには予測モデルをアプリケーションに組み込む必要があります。
+(例えば、明日の需要を予測するモデルを利用して、自動発注のアプリケーションを開発する、など。)
+
+予測モデルをアプリケーションに組み込むためには予測APIを設計、実装したり、そのための開発環境を用意したりといったことをしなければならないため、そこでコストや時間がかかってしまうという課題がありました。
+
+そこで、私たちはJupyter Notebookのextensionを実装し以下のことを可能にしました。
+1. Jupyter Notebook serverにWeb APIのエンドポイントを公開し、NotebookをWeb APIとして実行可能にした
+2. Notebookファイルにパラメータを定義し、HTTPリクエストからパラメータを渡せるようにした
+3. Notebookとそこに定義されたパラメータからWeb API仕様のドキュメントを自動で生成できるようにした
+
+これによって、データサイエンティストが予測モデルを利用するNotebookを書くだけで予測APIを作成でき、アプリケーションに予測モデルを素早く組み込めるようになります。
+
+このJupyter Notebookのextensionと、これを用いた問題解決へのアプローチをお話します。",Beginner,Talk (30 minutes),"Machine learning and data science, Best practices, Project case studies"
+Probabilistic Programming and Bayesian Deep Learning (comparing Edward and ZhuSuan python libraries),"While creating model for solution of any real life scenario modelling uncertainty is really important. Traditionally, machine learning provides some approach such as Gaussian Processes for modelling uncertainty but these approaches can't scale to high dimensional inputs like images and videos.
+On the other hand deep learning algorithms are great for high dimensional inputs but struggles to model uncertainty.
+
+The solution to the problem described above is the topic of my talk -Bayesian Deep Learning .The talk will be about how probabilistic programming, which has been good in modelling uncertainty and deep neural network, which can scale to high dimensional inputs like images and videos, can be combined into Bayesian Deep Learning which provides a deep learning framework and can also model uncertainty.The talk will cover different types of uncertainties and how to model them with Bayesian approach using python libraries(Edward and ZhuSuan) to create safe A.I. 
+
+I'll utilise the time of my talk as follows:
+
+0-10 mins: Introduction to the problem in hand, of modelling uncertainty and why deep learning is not 
+                  good enough for the problem. What is traditional probabilistic approach to the problem and it's 
+                 shortcomings for high dimensional input, leading to the introduction of Bayesian Deep Learning.
+
+10-20 mins: Explanation of basic mechanism and mathematics behind Bayesian deep learning with some 
+                   examples.Description of various types of uncertainties such as Epistemic and Aleatoric which 
+                   need to be modelled.
+
+20-30 mins: Introduction to Edward python library and it's usefulness for creating Bayesian deep learning 
+                     frameworks. Some example problems to show the working of this library .
+
+30-40 mins : Introduction to ZhuSuan python library and how it is useful in creating Bayesian deep 
+                    learning framework along with some examples to show it's workings
+
+40-45 mins :  Q&A sessions with audience",All,Talk (45 minutes),
+PyCon JP における子ども向けワークショップの活動事例と実施の意義,"## はじめに
+全世界で子ども向けの子ども向けのプログラミング教育や学習の活動が実施されている。日本においては小学校において2020年から教科中でのプログラミングという形で必修化する。このような背景から、プログラミングが非常に注目されていると言って良い。気をつけなければならないのが、小学校に入ってくるプログラミングはコーティング技術などを教えるものではなく、プログラミングを一つの方法として問題解決能力や抽象化の概念などを養うことに重きをおいている。PyCon JPで実施している子ども向けワークショップは上述した問題解決能力の向上にもフォーカスしているが、Pythonという言語を通してコンピュータと対話する技術や子どもたちのコミュニティ形成に重きを置いていると言って良い。本トークではPyCon JP における子ども向けワークショップから得られた結果の共有、考察を通して、Pythonを子ども向けプログラミングに用いる有用性や展望について検討する。
+
+## PyCon JP における子ども向けプログラミングワークショップ
+本セクションでは「子ども向けプログラミングワークショップ」の実施内容や結果などについて触れる。
+なお、実施項目としては以下であった。  
+ ・2015年 Python + Minecraft  
+ ・2016年 Python + Web    
+ ・2017年 Python + Game   
+
+## 世界のPyConにおける活動
+本セクションでは、世界のPyConで実施されている子ども向けワークショップについて事例を示す。
+例として、以下のような事例があげられ、世界各国で子どもを対象のワークショップや活動が見られ、非常に注目が高いことがわかる。    
+ ・PyCon 2018 Young Coders    
+ ・PyCon  UK 2016   
+ ・PyCon CZ 2017  
+
+##  日本と世界の比較
+本セクションでは、日本での実施例と世界での実施例を比較しどのような共通点があり、どのような違いがあるかを検討および考察をする。
+
+## 子ども向けプログラミングにおけるPythonの利点、有用性
+本セクションでは、日本、世界における活動を参考とし、Pythonを使うことの利点や有用性について検討および考察をする。
+
+##  おわりに
+本トークをまとめ、子ども向けワークショップの実施の意義を示す。
+",All,Talk (45 minutes),Python in education science and maths
+"Python, AWS and FinTech","Python's data processing capabilities along with the elastic
+infrastructure provided by Amazon AWS has leveled the financial tech
+field between the big players and the small. For the first time we had
+access to an infrastructure previously only available to the biggest
+players and allowed us to enter and compete in a market previously not
+open to smaller players.
+
+
+This is a talk on how Point Nine, a small tech firm operating out of
+Limassol, Cyprus, has leveraged Python and AWS to enter into a complex
+fin tech space, that of trade processing and regulatory reporting,
+processing millions of trades per day at a global scale and partnering
+up with major global players such as one of the biggest banks in Japan.
+
+
+",All,Talk (30 minutes),"Python Data Processing, FinTech, RegTech, AWS"
+Pythonistaに贈るコンテナ入門,"本セッションでは主要なコンテナ技術であるDockerの概要とコンテナを活用することによるメリットを説明した上で、AWSのコンテナ管理サービスであるAWS Fargateを用いて実際にPythonアプリケーションをデプロイするデモを想定しています。
+
+* コンテナ技術概要
+* Docker概要
+* コンテナ活用によるメリット
+* AWSのコンテナ関連サービス概要
+* デモ
+** PythonアプリケーションをAWS Fargateでデプロイ
+* まとめ",Beginner,Talk (45 minutes),"Best practices, System administration, Programming tools, Anything else basically which doesn’t really fall into the types of topics above"
+Pythonistaの選球眼（せんきゅうがん） - エンジニアリングと野球の目利きになる技術,"# Title
+
+Pythonistaの選球眼（せんきゅうがん） - エンジニアリングと野球の目利きになる技術
+
+# TL;DR
+
+* ライブラリ・フレームワークはプロダクトの主旨・目的およびプロジェクトの状況（期間・構築コスト・運用コスト・学習コスト）で決める
+* ライブラリ・フレームワークを最適にかつシンプルに選択できるよう、技術力を鍛えよう（個人学習・コミュニティ）
+* イシューからはじめよ（選択に迷い・ブレが無いよう、プロジェクト・プロダクトのストーリーとイシューを固めよう）
+* 好球必打（こうきゅうひつだ）.優秀な野球選手ほど、打つべきボールをしっかり見極め、振り切っている（故にホームランがでる）.これを「選球眼」と呼ぶ.
+* エンジニアも野球選手も、大切なのは「イシューからはじめる」「選球眼」そして「やり切る」こと
+
+# Outline
+
+## 【あらすじ】選球眼 #とは
+
+一般的にはこちらの意味になります.
+
+> 選球眼（せんきゅうがん、英: Batting eye）は、野球において、四球を選び見極める力、ストライクの球かボール球かを見分ける力のこと。一般に「選球眼が優れている」とは投手の投げる際どいボール球を見切り、打者にとって有利なカウントを整えられる選手のことを指す。
+> 
+> [ウィキペディア](https://ja.wikipedia.org/wiki/%E9%81%B8%E7%90%83%E7%9C%BC)より引用.
+
+実際にはストライク・ボールのみならず、「自分が打てるボールを見極める」という意味合いもあります.
+
+## 目次
+
+順番は多少前後するかもです.
+
+* プロダクトに合わせた技術を選ぶ
+* 技術を選ぶためのスキルを磨く（個人・コミュニティ）
+* 【野球】ホームランが出るしくみ
+* 【野球】ホームランをPythonで見極める
+* 【まとめ】イシューからはじめよう",Intermediate,Talk (30 minutes),"Best practices, Python in education science and maths, Baseball, SABRmetrics"
+Pythonを使ったハードウェア開発について,"RaspberryPiやIoTで必要となるハードウェア開発技術について説明を行います。
+説明だけでは飽きてしまいます。眠くなってしまうでしょう。
+そこで、当日は温湿度センサーや気圧、K型熱電対、カラーセンサー等、実際に科学の実験を行いながらPythonとの関わりを説明していきます。
+
+センサーを動かし、グラフを表示し、実践的で、体感的なプレゼンを行いたいと思います。
+
+ハードウェアに興味ある方、ない方も
+科学に興味ある方、ない方も
+IoTに興味ある方、ない方も勉強になるプレゼンを目指す予定です。
+ぜひ！",All,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Python in education science and maths, Machine learning and data science, Python libraries extending and embedding python in hardware, GUI and games, Packaging, Programming tools"
+Pythonで始めるウェブスクレイピング実践入門,"インターネット上の特定のリソースを集めようとしたとき、どのような方法を用いればよいでしょうか。
+
+リソースに対しWebAPIが用意されている場合、WebAPIを活用すれば問題なさそうです。
+
+しかし、すべてのリソースに対し、APIが用意されているわけではありません。
+
+特定の情報を集めようとしたときはまだまだスクレイピング活用の場面は多いと思います。
+
+Pythonでスクレイピングをする場合、標準モジュールの `html.parser` , もしくは、著名な外部モジュールに `Beautiful Soup4(bs4)` があります。
+
+昨今では `requests` の作者が作成した `request-HTML` が注目を集めており、それらのモジュールの比較、対象がSingle-Page Applicationである場合などを考慮した実践的な活用方法などを紹介します。
+
+話すこと
+
+* スクレイピング基礎
+* 昨今のスクレイピング事情
+* 標準モジュール
+* ライブラリの比較
+* 今始めるならどのライブラリを使えば良いのか？
+* 実践的なテクニックの紹介（SPAを対象とする場合など）
+* スクレイピングするときの注意点
+
+話さないこと
+
+* scrapyなどフレームワークの説明(以前の発表と被る部分もあるため)
+",All,Talk (30 minutes),Web programming including frameworks (Django / Flask / Pylons etc.)
+Pythonでざっくり学ぶUnixプロセス ,"プログラミングを学び始めた頃に、プロセス、ファイルディスクリプタ、
+システムコールなどのUnix系システムの用語に戸惑ったことはありませんか？
+
+本セッションでは、Unix系システムでプログラムを動かす単位となる
+プロセスについて概要を説明するとともに、その周辺知識を広く浅く
+Pythonコードを交えながら話します。
+
+- プロセスとは?
+- ファイルディスクリプタ
+- システムコール
+- シグナル
+- Pythonからどう見える?
+- Webサーバはどう動いてる?
+- 理解を助ける便利なツール
+
+大まかに上記のようなトピックを主軸に、Python初心者やプログラム初心者を対象にお話します。
+",Beginner,Talk (30 minutes),python
+Pythonによる異常検知入門,"##  ゴール
+- 異常検知の全体像と、利用されるアルゴリズムが理解できる
+- 目的に応じたいくつかの異常検知アルゴリズムをPythonから利用できる
+- 異常検知システムの構築例を理解できる
+
+---
+
+## トピック
+
+### 異常検知とは
+- 異常検知処理とはどのようなものか、概要をご説明します
+
+###  異常検知のアルゴリズム
+- 目的ごとに典型的な異常検知アルゴリズムをご紹介します
+
+### Pythonでの利用方法 (Scikit-learn, Keras, Tensorflow)
+- 上記アルゴリズムのPythonでの利用方法、実装方法をご説明します
+
+### 関連するTIPS
+- 異常検知処理をアプリケーションとして実装する場合のTIPSをご説明します
+  - システムアーキテクチャ
+  - 評価方法
+  - 再現性の担保
+  - そのほか、実装上の工夫
+",Intermediate,Talk (30 minutes),"IoT, Anomaly Detection, Machine Learning, statistics"
+Python研修の作り方-Teaching Is Learning-,"* 自己紹介
+* 研修自体の全体構成
+    * Python研修準備内容
+        * カリキュラムはどうやって決めたのか
+* なぜこれを教えることとしたのか
+* 準備期間中に何をしたのか
+* どんなことを取り入れたのか
+    * なぜJupyter Notebookを採用したのかなど
+* どんなことを捨てたのか
+* 資料レビューで実際に貰ったコメント内容紹介
+* 研修の準備を通してどんな学びがあったのか",All,Talk (30 minutes),Best practices
+Pythonで「お絵描きパズル」を解いてみた。,"ナンプレのようなお絵描きパズルを解くとき皆さんどこから解き始めますか?  
+お絵描きパズルのようなマスを塗りつぶしていく問題は数字の多い箇所から解き始めると思います。  
+では実際に問題を解く過程をプログラムで書いてみようと考えてみてください。  
+これが意外と難しい。  
+Pythonを始めたばかりの私でも10マス四方の問題を解くプログラムは簡単に書けました。  
+しかし中上級者向けの25マスや45マス四方など難しくなるにつれ解けない問題が増えていきました。  
+回答が得られなかったりメモリオーバーで終了してしまったり・・・。  
+しかしPythonにはNumpy,Pandas,Jupyter Notebookなど便利なライブラリが数多くあり  
+それらを使用することでどんな難問でも解くことができるようになります。  
+私はパズルやナンプレを解くためにPythonを使うことは相性が良いと思います。  
+この話ではパズル問題を解くために使用したライブラリや問題を解くロジカルシンキングを初心者でも分かりやすく説明します。  
+皆さんもぜひPythonを使ってお絵描きロジックやナンプレ、クロスワードに挑戦してみませんか。  ",Beginner,Talk (30 minutes),Anything else basically which doesn’t really fall into the types of topics above
+ Pythonで解く大学入試数学,"数学系ライブラリの紹介・説明
+
+-  sympy
+- numpy
+- scipy
+
+ライブラリの使い方とあわせて数学についての説明
+
+- 微積分
+- 行列
+- 線形代数
+- 確率・統計
+
+数学の問題を実際に解いてみる
+
+- センター試験
+- 大学入試問題",All,Talk (30 minutes),Python in education science and maths
+Real-time object detection coz YOLO!,"YOLO is an algorithm for high speed image processing. The agenda will be as follows: 
+
+- About the algorithm itself, YOLO v3 which is the latest and faster version of YOLO, the architecture of the networks it uses, how it functions and the advantages and disadvantages of YOLO. 
+- Overview of other algorithms like region proposals based CNNs, RetinaNet. 
+- YOLO was originally written in the Darknet framework which is great, fast and written in C. But since python is easier to work with and thankfully there are a lot of Pythonistas(?) in this world, a tensorflow version called darkflow was created. Using darkflow on cmd, processing video and generating bounding boxes and labels for detecting/tracking/localising objects. 
+- Processing images in a Python application, adding bounding boxes and labels using darkflow, matplotlib and basic functionalities. 
+- Processing complete videos in Python in the similar way as the previous section, except that this will be run on each frame of the video in a loop. (Usage of capture and other functions specific to video) 
+- Processing real time videos from webcam 
+- Further possibilities of training the model for detecting something it isn’t trained on 
+- Applications",Intermediate,Talk (30 minutes),"python, artificial intelligence, deep learning, computer vision, yolo, Machine learning and data science"
+Sphinx-2.0 とドキュメントの未来,"SphinxはPythonの公式リファレンスやDjangoのドキュメントをはじめとして、数多くのPython製ライブラリやツールのドキュメントで使われています。また、最近ではLinuxカーネルなどにも利用されており、Pythonに限らず幅広く使われています。
+
+そのSphinxはもともとPythonの公式リファレンス用のドキュメンテーションツールとして2008年に生まれました。最初のリリースから10年が経過したいま、Sphinxは2.0のリリースに向けて開発が進められています。このトークでは、以下の内容について紹介します。
+
+* Sphinxとはなにか
+* Sphinxの歴史
+* Sphinx2.0の新機能
+* Sphinxの将来像",All,Talk (45 minutes),"Documentation, Sphinx"
+SymPyによる数式処理,"# SymPyによる数式処理
+
+- SymPyとは何か
+- 準備
+    - `pip install sympy`
+    - 依存ライブラリは`mpmath`だけ
+- 微積分学
+    - 四則演算
+    - 多項式の因数分解と展開、簡略化
+    - 関数の極限
+    - 多項式の微積分学
+    - 初等関数の微積分学
+- 線型代数
+    - 行列とベクトルの計算
+    - 行列式と逆行列
+    - 連立一次方程式
+    - 線型写像と階数
+    - 像空間と核
+    - 行列の固有値、行列の対角化
+- 整数論
+    - 素数の性質
+    - 最大公約数と最小公倍数",Intermediate,Talk (45 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Project case studies, Mathematics, SymPy"
+The Modern OAuth 2.0,"A detail introduction of the modern OAuth 2.0 framework and how to implement a OAuth 2.0 ID provider in Python (Flask). Including:
+
+1. Basic OAuth 2.0 provider
+2. OAuth 2.0 JWT Assertion profile
+3. OAuth 2.0 Dynamic Client Registration Protocol
+4. OpenID Connect 1.0
+
+And may be more.",Intermediate,Talk (30 minutes),"python, flask, oauth"
+Visualizing Topic Models,"With the growing amount of unstructured text data, it could be a difficult task to obtain the relevant and desired information. Topic Modelling is an NLP method precisely aimed at solving this problem. It is a frequently used text-mining tool for discovering the abstract ""topics"" or we can say “a repeating pattern of co-occurring terms"" that occur in a corpus. A good topic model should result in – “health”, “doctor”, “patient”, “hospital” for a topic related to Healthcare, and “farm”, “crops”, “wheat” for a topic related to “Farming”.
+
+Topic Modelling is a great way to infer topics in a large corpus of text documents but analyzing them could become difficult without any visualization. The purpose of this talk is to introduce the visualizations that aids the process of training topic models and analyze their results. I’ll give a brief introduction on Topic Models before moving to visualizations.",All,Talk (30 minutes),"NLP, Visualizaion, Data Science"
+Webアプリケーションの仕組み,"最近のアプリケーション開発は、上から下まで幅広い範囲を知っていてあたりまえになっていて、そういったアプリケーション開発をサポートするフレームワークやツールが非常に充実しています。たとえばWeb開発であれば、Djangoの使い方が分かれば、HTTP通信でなにが起きているか、TCP/IPでなにが起きているか知らなくてもなんとかなります。しかし、代わりにDjangoが提供する機能を全て覚えないといけない気になってしまっていないでしょうか？あるいは突然、HTTP_HOSTヘッダーのセキュリティー警告がメールが飛んできて、どうしたらよいか戸惑ったりしていないでしょうか？
+
+これから先も開発を高速に進めるために、一度高速道路を降りて、これまでフレームワークが隠蔽していた基礎を勉強してみるのも良いと思います。
+フレームワークを使わずに同じことを実現する実験をしてみましょう。
+
+このトークセッションでは、Pythonを使って、フレームワークなしでWebアプリを作るにはどうすればいいのかを紹介します。またそこから、今のWebアプリケーション開発に使われるフレームワークやスタックがなぜ必要とされているか、どのような利点があるのかを紹介します。
+",Beginner,Talk (45 minutes),"Python, Webアプリケーション開発, HTTP, TCP, IP, HTML, CSS, JavaScript, SSL, Database, Socket, CGI, Web programming including frameworks (Django / Flask / Pylons etc.)"
+Why you should care about types: Python Typing in the Facebook Backend,"By now you have probably all heard about Python static typing. But why should you care? Are types in Python even Pythonic? Is Python turning into Java? Type annotations are Pythonic, trust Guido's word for it, and Python is definitely not turning into Java.
+
+I joined the Facebook London office in early 2016 after finishing university. At that time my team was running Python 2.7 and we had just 2 engineers. These days we are running 100% typed Python 3.6, have 8 engineers and 3 interns. In 2017 we flipped the switch from 2 to 3 and started aggressively typing the codebase, at that time we had only 3 engs.
+
+In the first year of the team we managed to hire only 1 eng, the second year 6. So what made the difference? At Facebook, people go through Bootcamp and complete tasks from teams they are interested in before taking a decision on which to join. Having a codebase that's easy to navigate and understand is key to attract talent! Type annotations achieve just that, even without using a type checker.
+
+The greatest benefit of types in large Python codebases is the fact that the input and output structures of a function are obvious from just looking at the signature. In the untyped world the definition for the class you are looking for may be N jumps away, hidden somewhere deep in the codebase, and you don't have a direct reference to it. In the best possible case grepping for it will yield just a few results and you will be able to spot what you are looking for. In the worst case though, you will have hundreds of hits and you will have to run your application and inspect the type at runtime to figure out what is going on, which make the development cycle slow and tedious.
+
+Come to this talk if you want to know more about the typing system in Python, how to gradually add it to your codebase and what benefits will your team get in the long run! I will also cover FB specific technologies like our runtime type collection system, MonkeyType, and the just open sourced type checker, Pyre!",All,Talk (45 minutes),"General Conference, Best practices"
+WILDCAT SDKは量子コンピュータビジネスの味方となるのか！？,Pythonistaにこそ、量子コンピューターは強力なスキルとなりうる可能性が高いです。なぜならSDKの多くはPython製だからです。ですが、量子コンピューターは、資料や本を読んでもなかなか理解しずらいので、既成概念のどの部分を切り替えると理解し易いかというポイントに絞った解説や、サンプルを紹介します。また、技術やビジネスにおける現状や、どんな事に使えそうかについても紹介します。,Intermediate,Talk (30 minutes),Packaging
+実践・競馬データサイエンス,"# 実践・競馬データサイエンス
+
+競馬というドメインは、取り組む課題として非常にエキサイティングで、毎週（毎日）開催があるため、定期的に新しいデータが追加され、解くべき問題が追加されていきます。
+そのような競馬を対象に、私たちは競馬を予測する人工知能を2年間開発してきました。
+ここから得られた知見は競馬に限らず、様々な分野において予測モデルを構築する際に応用することができます。
+
+本トークでは、2年にわたる競馬の予測モデル構築から得られた実践的なノウハウをご紹介します。
+本トークの構成は以下を予定しています。
+
+1. 競馬のデータについて
+2. 目的変数の設計方法
+3. データの前処理方法
+4. 特徴量エンジニアリング
+5. 予測モデルの学習方法
+6. 予測モデルの評価方法
+
+まず、最初に競馬のデータの特性について紹介し、ここでの知見が競馬に限らず様々な分野に当てはまることを紹介します。
+ここでのキーワードは、
+
+- 時系列データ
+- カテゴリカルデータ
+- スパースデータ
+
+などが挙げられます。
+
+次に、問題を解くために設計する目的変数をどのように考えるのかを解説します。
+
+その後、タスクの割合的に大部分を占める前処理について解説し、特徴量設計について、特に時系列データの取り入れ方について説明します。
+ここでのキーワードは、
+
+- 前処理
+  - 標準化
+  - 正規化
+  - 欠損値補間
+- Pandas
+- feature importance（特徴量重要度）
+
+などが挙げられます。
+
+予測モデルの学習では、過学習を抑える方法を中心に説明し、最後に、いくつかの視点から学習したモデルの評価をします。
+ここでのキーワードは、
+
+- Gradient Boosting Decision Tree
+  - LightGBM
+- Cross-validation（交差検証）
+- nDCG
+
+などが挙げられます。
+
+本トークは競馬の必勝法を伝えることが目的では無く、予測モデル構築の知見を一般化し伝えることが目的になります。
+最後に、競馬以外への応用例を紹介し本トークを締める予定です。",Advanced,Talk (45 minutes),"Machine learning and data science, Best practices, Project case studies"
+料理写真が美味しく撮れる！ 開発現場から覗くAI料理カメラの裏側,"## SnapDish／AI料理カメラ紹介
+お料理SNSであるSnapDishと、料理を美味しそうに撮れる瞬間を教えてくれるAI料理カメラについて軽く説明します。
+
+## 背景技術
+AI料理カメラが用いている技術についてお話しし、それぞれ簡単に説明します。
+
+   * 機械学習
+   * ニューラルネット、ディープラーニング
+   * Keras
+   * CoreML
+
+## ディープラーニング
+ディープラーニングの様々な応用例をお話しします。
+特に、その一つである画像分類モデルについてやや詳細に解説します。
+
+適切な画像分類モデルさえあれば、AI料理カメラが実現できます。
+
+## AI料理カメラの仕組み
+画像分類モデルから、どうやってAI料理カメラを実現するかをお話しします。
+
+画像分類モデルの中身次第では、料理カメラに限らず、様々なAIカメラを実現することもできます。
+
+## AIモデル学習
+SnapDishから取ってきたAI料理カメラの訓練データと、学習に使ったモデルの枠組みであるGoogLeNetについてお話しします。学習データとモデルの枠組みさえ揃えれば、あとはコンピュータが頑張ってパラメータを調整してくれて学習が完了です。
+
+どなたでも、web上に転がっているデータを集めてくることで、色々な画像分類モデルを作ることができます。Pythonだと、ライブラリが充実しているので学習そのものはあまり難しくありません。このトークのフレームワークで「誰でも」「色々な」AIカメラを作ることができます（データの収集とアプリへの組み込みが大きな壁ですが...）。
+
+## 現場が遭遇した問題
+ここでは、学習したモデルを実際に使ってみた際に浮かび上がってきた問題についてお話しします。
+
+料理を認識してくれない構図があったり、ただの風景をおいしそうな料理だと誤認する場合があったりします。特に、初期のAIカメラには卵料理に非常に弱いという欠点がありました...
+
+## 実演動画
+問題点がわかりやすいように実演動画をお見せします。さらに、改良を重ねて問題の解決に成功したバージョンの実演動画もお見せして比較を行います。いかにして問題を解決したかは以降でお話しします。
+
+## 問題解決までのプロセス
+Data augmentationを始め、問題解決までに現場が辿った道筋をお話しします。モデルの学習を工夫するだけでなく、その使い方によっても問題が解決できる場合があります。
+
+
+## AI料理カメラの今後
+AI料理カメラの枠組みを使って、料理名分類（推定）器が学習できます。これを使うと、なんと画像情報だけから似た料理を探してくれる機構を作ることができます。検索、recommendationへの応用など、AI料理カメラの今後についてお話しします。
+",Intermediate,Talk (30 minutes),"Image classification, SNS, GoogLeNet, Machine learning, Deep learning, Keras, CoreML, iOS app, Data augmentation"
+あなたと私いますぐパッケージン,"* pypi リニューアル
+* pip 10
+* pipenv
+* PEP 518
+",Beginner,Talk (45 minutes),Packaging
+「リモートペアプロでマントルを突き抜けろ！」AWS Cloud9でリモートペアプロ＆楽々サーバーレス開発,"「リモートペアプロでマントルを突き抜けろ！」
+====
+AWS Cloud9でリモートペアプロ＆楽々サーバーレス開発
+--------
+
+- Pythonを使ったAWS Lambdaの開発環境として注目されているAWS Cloud9の便利な機能のひとつがリモート ペアプログラミングです。この機能を利用して地球の裏側にいるメンバーともペアプロやコードレビューが可能です。このセッションでは実際にペアプログラミングやユニットテストのデモを交えながら、どのようにAWSサーバーレス開発が行えるかをご紹介します。",All,Talk (45 minutes),"Python, AWS, Lambda, AWS Cloud9, unittest, SErverless Application Model"
+自分が欲しいものをPythonで書く方法(Python for Myself),"## 課題
+
+趣味としてPythonを学んでいる人や，将来的には仕事でPythonと考えているが今は仕事では使っていない人の悩みの1つは，「書籍やオンライン学習サイトでPythonを学んだはいいが，次に何をしたらよいかがわからない」というものです。
+
+仕事であればアサインされたプロジェクトがありますが，特にそんなものはなく，もちろん納期もありません。「何でも作っていい」と言われても途方にくれるばかりです。
+
+## ソリューション
+
+答えは簡単です。「あったらいいな」と思うものを自分で作ればいいんです。
+Excelのファイルを何個も開いて同じようなコピペを繰り返すのが面倒？Pythonで書きましょう。
+休日のランニングコースを地図上にプロットしたい？Pythonで書きましょう。
+素敵なパートナーが欲しい？Pythonで・・・それは無理かもしれませんが。
+
+## どう書くか
+
+書籍やWebを探してみて，そこにやり方が全部書いてあったらラッキーです。
+まねて書いてみましょう。うまく動かない？そんなこともありますよね。
+
+あっちに少し，こっちに少しと断片的な情報を組み合わせることで実現できそうなこともあります。
+組み合わせてみましょう。うまく動かない？そんなこともありますよね。
+
+そもそもどこにも情報がない？そんなこともありますよね。
+
+わからないことがあったとき，質問できるようなPythonistaが近くにいない？そんなこともありますよね。
+
+そんなときにどうやって乗り越えるかについて，このトークでは私自身が苦しんだ例をあげながらお話しします。
+基礎を学び終えて次にやることを探している皆さん，やりたいことはあるけどつまづいてしまっている皆さんのヒントになれば幸いです。
+
+## 想定している聴衆
+
+一通りPythonを学んだが次に何をしたらよいかわからない人，作りたいものがあって取り組んでみたがうまくいかなくて心が折れそうな人
+
+## 聴く意味がない人
+
+自力で何とかできる人",Beginner,Talk (30 minutes),"Web programming including frameworks (Django / Flask / Pylons etc.), Best practices"
+複数アプリケーションのプロセスとログを管理するための新しいツールと手法,"近年のソフトウェア開発においては、たくさんのアプリケーションプロセス、サービス、コンポーネントを連携させる必要があります。プロダクション環境ではコンテナベースのオーケストレーションやログ集約のしくみが充実してきましたが、開発者の手元の開発環境では、手軽にアプリケーションを連携させたり実行状況を確認したりするためのしくみが不足しています。
+
+このように複雑化する環境で、開発者の作業を支援するために [Jaffle](https://github.com/yatsu/jaffle) というツールを開発しました。
+
+Jaffleは以下の機能をもちます。
+
+* 複数のPythonアプリケーションをJupyter Kernel上で動作させ、連携させる
+  * ビルトインの `WatchdogApp` が中心となり、ファイル更新のタイミングで任意の処理を実行できる
+    * 特にpytestの自動実行とTornadoアプリの再起動を行うコードは搭載されている
+* 起動したすべてのPythonアプリケーション、プロセスのログを統合し、時系列に表示する
+* ログを正規表現で絞り込む
+* ログを正規表現と関数で置換する
+  * `fg()`, `bg()` 関数による色付け、`jq()` 関数によるJSON(もしくはdict)からの値抜き出し
+
+具体的な開発環境例として、以下のデモを行います。
+
+* [pytestを使った自動テスト](http://jaffle.readthedocs.io/en/latest/cookbook/pytest.html)
+  * ファイルシステム監視とpytestの連携
+* [TornadoとReactによるWeb開発](http://jaffle.readthedocs.io/en/latest/cookbook/tornado_spa.html)
+  * 複数プロセスの自動再起動と自動テスト
+  * Jupyter Kernel(同一プロセス)上でのPythonアプリケーション連携
+* [Jupyter Extension開発](http://jaffle.readthedocs.io/en/latest/cookbook/jupyter_ext.html)",Intermediate,Talk (30 minutes),"Programming tools, Logging, Testing"
+"オンザフライ高速化パッケージの比較：Numba, TensorFlow, Dask, etc ","## 数値計算に不慣れな**初心者**でも簡単な修正で**数倍～２０倍**、なれたベテランなら**数百倍**、Pythonだけでの高速化手法を紹介します。##
+
+## 背景 ##
+　　かってCPUがシングルコアーの時代には、CPUバウンド処理の高速化は高価なベクトルプロセッサを使用出来る特殊な分野に限られていましたが、マルチコアCPUと安価なGPGPUにより普通の分野でも可能になってきました。  
+　　しかし、ハードウエアーにより演算を複数同時に実行出来ても、データの一貫性にっいてはソフトウエアで保証する必要があります。マルチプロセスではアドレススペースが独立しているため、低速なプロセス間通信(IPC)によるデータ交換が必要なため、粒度の大きな処理に限られています。
+　一方、**マルチスレッド**は同一アドレススペースですから、通常データとしてアクセスし高速化に適していますが、スレッド間でデータの矛盾がおきないよう**スレッドセーフ**が必要です。そのため、自分のロジックだけでなく、使用言語のコンパイラー/インタープリターのライブラリも含めてスレッドセーフを確認する必要があります。  
+
+　　Pythonでは、GILがガーベージコレクションのスレッドセーフ化のため、マルチスレッドをシングルコアモードで動かすため、高速化したいコードをCで記述しCPythonに登録するか、他のVMに変換して実行する必要があります。**簡単に変換実行**するため：Cコンパイル済みコードの実行；LLVM変換実行；GPGPUコード変換実行；計算グラフ変換実行；等の手法によりPythonコードを**オンザフライ**に高速化するパッケージが公開されています。しかし、ドキュメントや解説が個々のパッケージに限定され、実行条件の違いや制限、そしてキーとなるスピードの比較がされておらず選択を困難にしています。
+
+　　そこで、高速化の基本を示しながら、フリーソフトで汎用性が高いパッケージの使いやすさと、円周率計算で**1ラインで２０倍から書き直しで６００倍**までの高速化とを比較します。  
+
+
+## 講演の概要 ##
+**４５分トーク**での構成案ですが、３０分でも一部を省略して対応致します：  
+
+-  **簡単な事例での背景説明：**  
+ 　▶ **GIL**のため、高速化マルチスレッドコードをPythonで直接書いてはいけない：  
+ 　　　・ スピード比較：簡単な処理を、通常、２プロセス、２スレッドで実行し、２スレッドで遅くなります。  
+ 　　　・ データエラー：GILスライス時間を超えるスレッドでデータエラーが発生する基本操作があります。  
+ 　▶ 従来法（オンザフライ以外の方式）での高速化の問題を事例から説明します。  
+ 　　　・ C/C++に書き直してCPythonの拡張モジュールにする。  
+ 　　　・ OpenCL/PyCUDAによりマルチコアやGPGPUを使用する。  
+
+- **ベクトル/マトリックス化とNumpy演算による高速化：**  
+ 　▶ Pytonの基本操作（for, assign, indexing..等）の実行時間比較によるシングルスレッドでの高速化のポイントを説明します。  
+ 　▶**Numpy**はベクトル演算関数をC言語コードで組み込んであるので、for文を含むPythonコードをNumpyコードに
+ 書き換えるだけで高速化出来ます。その効果と注意点を説明します。  
+ 　▶ NumpyでBLASI/Fで書かれた行列演算関数の、マルチコアでは**Intel Math Kernel Library**、GPGPUでは**cuBLAS**での加速性を説明します。  
+ 　▶ **Numpy関数と同じパラメータを持つパッケージでの高速化:**　  
+ 　　　・ **TensorFlow**でマルチコアとGPGPUでの高速化を示し、GPGPUでのデータ転送時間の問題を提起します。  
+ 　　　・ **PyTorch/CuPy**でのGPGPUでの高速化を示します。  
+
+- **Numpy関数に置き換えられない場合の高速化：**  
+ 　▶ １文の**NumExp**による高速化  
+ 　▶ for文を含む複数文の**Numba**による**１ライン追加**による高速化（シングル/マルチスレッド、GPGPU）  
+
+- **Pytonコードのパラレルに実行可能な計算グラフへの変換実行：**  
+ 　▶ **TensorFlow**のマルチコア/GPGPU  
+ 　▶ **Dask(Joblib)**のマルチコア  
+
+- **上記方式の実行例**：  
+ 　▶ 複数のパッケージの組み合わせ  
+ 　　　・ **Dask+TensorFlow、 Numba+TensorFlow、Dask+Numba, etc**  
+ 　▶その他  
+
+- **今回のスライドは**、TFUG発表[「汎用数値計算機としてのTensorFlow動作解析と考察」](https://drive.google.com/open?id=1JvggW4IoDAsbcJMeJvjk6RwK7yf6jPDE)
+に似たフォーマットのPDFで**公開予定**です：  
+ 　▶  TensorFlow特有のテーマを省き、一般化します。  
+ 　▶  実行時間測定及びプロットシステムを改良し、多種なケースをレポート可能にしました。  
+ 　▶  詳細を付録に記載予定です:  
+ 　　・サンプルコード  
+ 　　・インターネットリンク（ドキュメント、解説記事、ブログ,...）  
+ 　　・NumPy関数の Numba,TensorFlow,PyTorch、CuPyとの対応表  
+",All,Talk (45 minutes),"GIL, LLVM, JIT, ML, CPU-Bound, Computing Graph, Numpy, Numba, TensorFlow, Dask, CuPy, PyTorch, NumExpr, Joblib, Data processing, Numerical Analysis, Machine Learning, HPC, Python スピード"

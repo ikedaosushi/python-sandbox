@@ -1,0 +1,1153 @@
+title,description,tags,location,bio,organization,shirt_size,notes
+5つの技術コミュニティスタッフを数年経験して感じた、今後のコミュニティ進化形とは？,技術コミュニティーの歴史や、複数の技術コミュニティのスタッフをして感じた、メリットやデメリット、その種類や共通点や違いについて共有します。その上で、技術コミュニティに向いている人の特徴を紹介したり、今後の技術コミュニティの進化を共有するので、自分が適合する方向への参考にしていただければと思います。,Community building and human interaction,,,,,"アジェンダ案
+=====
+
+自己紹介
+-----
+
+来場者への質問
+-----
+
+* 技術コミュニティに参加したことがある人
+* 技術コミュニティのスタッフをしたことがある人
+* 複数の技術コミュニティスタッフをしたことがある人
+
+技術コミュニティーの歴史
+----
+
+* 技術コミュニティーの歴史
+* PyConコミュニティー（国内外）の歴史
+* Pythonコミュニティーの歴史
+
+スタッフをしている技術コミュニティの特徴
+----
+
+* Start Python CLUB
+* fin-py
+* X-Tech JAWS
+* Fin-JAWS
+* その他イベントの企画
+
+技術コミュニティのスタッフをしたきっかけやモチベーション
+---
+
+### きっかけ
+
+###  モチベーション
+
+技術コミュニティスタッフのメリット・デメリット
+-----
+
+### メリット
+
+* 学びの負担が減る、知識範囲の拡大
+* 有識者の知人ができる
+* 繋がり：SNS数の増大、イノベーションへのコントリビュート、社会課題の解決、社内ビジネスとの提携
+* 個人のお金（兼業）：イベント依頼、書籍、招待
+* （完全な裏方なのになぜか）名前が売れる。
+* 依頼するための基礎能力（プログラミング能力、周辺技術能力の向上）
+* ツールの有効活用
+* 礼儀作法、交渉力、各種手続き・調達力、文章力の向上
+* 無茶振り・無茶ぶられ
+
+### デメリット
+
+* 体力の限界
+* コミュニケーション数の爆発
+* コミュニティの運営自体が目的になる
+
+複数の技術コミュニティスタッフを経験したてわかった事
+-----
+
+* 大型と小型、パブリックとプライベート開催、社内のみコミュニティの特徴
+* 同じものはどれ一つとしてない
+* 互いの技術コミュニティの知見や失敗を交差させることでさらに向上
+* 重い技術コミュニティ・軽い技術コミュニティーへの均衡
+* 一つのものに依存することもまたリスク
+
+コミュニティに向く人、不向きな人
+-----
+
+* 技術どのように学ぶべきかの簡単なアンケート
+
+技術コミュニティの進化について
+-----
+
+* 世界の技術コミュニティ状況
+* 技術コミュニティの効果は組織や社会にも影響を与える（オープンイノベーション、アクセラレーター、シビックテック）
+* 技術コミュニティ進化の中でPythonが与える効果
+
+まとめ
+-----
+
+---------
+
+参考実績
+=====
+
+* [PyCon JP 2016トーク発表「Blockchain for Pythonistas」](https://speakerdeck.com/abenben/blockchain-for-pythonistas)
+* [Pythonコミュニティ:Start Python CLUB（企画スタッフ）](https://startpython.connpass.com)
+* [Pythonコミュニティ:fin-py（企画スタッフ）](https://fin-py.connpass.com)
+* [技術（クラウド）コミュニティ:X-Tech JAWS（企画スタッフ）](https://xtechjaws.doorkeeper.jp)
+* [技術（クラウド）コミュニティ:Fin-JAWS（企画スタッフ）](https://fin-jaws.doorkeeper.jp)
+* [技術（自然言語処理、AI）コミュニティ（企画支援）:found IT](http://foundit.tokyo)
+* [テックイベント BLOCKCHAIN SUNDAY（企画支援・モデレーター）](http://wired.jp/business-bootcamp/2017/blockchain/)
+* [テックイベント TOAワールドツアー東京2018（企画支援）](http://eventregist.com/e/toaworldtour2018?lang=ja_JP)"
+A Condensed Lecture on Linear Algebra using SymPy,"# A Condensed Lecture on Linear Algebra using SymPy
+
+## SymPyとは？
+
+- SymPy: Python library for symbolic mathematics
+- `pip install sympy`
+
+## 行列とベクトル
+
+- ベクトルの定義
+- 行列の定義
+- 行列とベクトルの演算
+- 行列と線型写像（超重要）
+
+## 行列式
+
+- 置換群
+- 行列式の定義
+- 行列式の性質
+- Cramerの解法による連立一次方程式
+
+## ベクトル空間
+
+- ベクトルの一次独立
+- 正規直交基底
+- 計量ベクトル空間
+
+## 行列の標準化
+
+- 行列の固有値
+- 固有多項式
+- 行列の対角化
+- 二次形式","Python in education science and maths, Mathematics, SymPy, Linear Algebra",,,,,"## 備考
+- 学部・修士課程では数学を学んでいました。発表内容は理解しています。
+
+## 過去の発表履歴
+
+### 2016年
+
+- 「PyConJP で感じる私の成長」PyCon JP 2016 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/pyconjp-degan-zirusi-falsecheng-chang) [Youtube](https://youtu.be/O1-9Yv9cB8Q?t=16m24s)
+
+### 2017年
+
+- 「Effective Python in Python 3.6」 Python 3.6 Release Party Lightning talk [Slide](https://speakerdeck.com/hayaosuzuki/effective-python-in-python-3-dot-6)
+
+- 「How to Write Functions in Python」PyCon JP Reject Conference 2017 [Slide](https://speakerdeck.com/hayaosuzuki/how-to-write-functions-in-python)
+
+- 「Respect the Built-in Names」PyCon JP 2017 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/respect-the-built-in-names) [Youtube](https://youtu.be/cUewj2kRrbk?t=13m13s)
+
+- 「技術書査読・校正の現場から」BPStudy #123 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/ji-shu-shu-cha-du-xiao-zheng-falsexian-chang-kara)
+
+### 2018年
+
+- 「レガシーDjangoアプリケーションの現代化」DjangoCongress JP 2018 [Slide](https://speakerdeck.com/hayaosuzuki/a-modernization-of-legacy-django-based-applications)
+
+## 技術書の査読
+
+- 『[Effective Python](https://www.oreilly.co.jp/books/9784873117560/)』オライリージャパン 2016年1月
+- 『[アルゴリズムクイックリファレンス 第2版](https://www.oreilly.co.jp/books/9784873117850/)』オライリージャパン 2016年12月
+- 『[初めてのPHP](https://www.oreilly.co.jp/books/9784873117935/)』オライリージャパン 2017年3月
+- 『[Effective Debugging](https://www.oreilly.co.jp/books/9784873117997/)』オライリージャパン 2017年6月
+- 『[スラスラわかるPython](http://www.shoeisha.co.jp/book/detail/9784798151090)』翔泳社 2017年8月
+- 『[PythonとJavaScriptではじめるデータビジュアライゼーション](https://www.oreilly.co.jp/books/9784873118086/)』オライリージャパン 2017年8月
+- 『[初めてのPerl 第7版](https://www.oreilly.co.jp/books/9784873118246/)』オライリージャパン 2018年1月
+- 『[Head First Python 第2版](https://www.oreilly.co.jp/books/9784873118291/)』オライリージャパン 2018年3月
+- 『[Pythonデータサイエンスハンドブック](https://www.oreilly.co.jp/books/9784873118413/)』オライリージャパン 2018年5月"
+All about cmath Module,"# All about cmath Module
+
+- 複素数とは?
+- cmath モジュールとは？
+- 極座標変換
+- 指数函数、対数函数、三角関数、双曲線函数
+- 分枝切断とは？
+- それで、結局cmathモジュールって使えるの？
+","Python in education science and maths, Mathematics, Complex Numbers",,,,,"## 備考
+- Pythonと数学について話せる人はそれほど多くないと思う。複素数についてはそれなりに知っているが、数値計算にまつわる事柄（特に分枝切断）は今後調べることになる。
+- PyCon JPのLTはたくさん経験があります
+
+## 過去の発表履歴
+
+### 2016年
+
+- 「PyConJP で感じる私の成長」PyCon JP 2016 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/pyconjp-degan-zirusi-falsecheng-chang) [Youtube](https://youtu.be/O1-9Yv9cB8Q?t=16m24s)
+
+### 2017年
+
+- 「Effective Python in Python 3.6」 Python 3.6 Release Party Lightning talk [Slide](https://speakerdeck.com/hayaosuzuki/effective-python-in-python-3-dot-6)
+
+- 「How to Write Functions in Python」PyCon JP Reject Conference 2017 [Slide](https://speakerdeck.com/hayaosuzuki/how-to-write-functions-in-python)
+
+- 「Respect the Built-in Names」PyCon JP 2017 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/respect-the-built-in-names) [Youtube](https://youtu.be/cUewj2kRrbk?t=13m13s)
+
+- 「技術書査読・校正の現場から」BPStudy #123 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/ji-shu-shu-cha-du-xiao-zheng-falsexian-chang-kara)
+
+### 2018年
+
+- 「レガシーDjangoアプリケーションの現代化」DjangoCongress JP 2018 [Slide](https://speakerdeck.com/hayaosuzuki/a-modernization-of-legacy-django-based-applications)
+
+## 技術書の査読
+
+- 『[Effective Python](https://www.oreilly.co.jp/books/9784873117560/)』オライリージャパン 2016年1月
+- 『[アルゴリズムクイックリファレンス 第2版](https://www.oreilly.co.jp/books/9784873117850/)』オライリージャパン 2016年12月
+- 『[初めてのPHP](https://www.oreilly.co.jp/books/9784873117935/)』オライリージャパン 2017年3月
+- 『[Effective Debugging](https://www.oreilly.co.jp/books/9784873117997/)』オライリージャパン 2017年6月
+- 『[スラスラわかるPython](http://www.shoeisha.co.jp/book/detail/9784798151090)』翔泳社 2017年8月
+- 『[PythonとJavaScriptではじめるデータビジュアライゼーション](https://www.oreilly.co.jp/books/9784873118086/)』オライリージャパン 2017年8月
+- 『[初めてのPerl 第7版](https://www.oreilly.co.jp/books/9784873118246/)』オライリージャパン 2018年1月
+- 『[Head First Python 第2版](https://www.oreilly.co.jp/books/9784873118291/)』オライリージャパン 2018年3月
+- 『[Pythonデータサイエンスハンドブック](https://www.oreilly.co.jp/books/9784873118413/)』オライリージャパン 2018年5月"
+Artisanal Async Adventures,"If you want to write an efficient server, asynchronous networking is an excellent strategy to do so. To build a production ready system, you would use asyncio, tornado, twisted, trio or another popular implementation. However, to fully understand how and why it works, I will ignore these solutions and instead craft an artisanal asynchronous implementation in front of your very eyes. Step by step we will turn a blocking socket server, only capable of handling a single connection at a time, into a beautiful non blocking server that has no trouble dealing with many connections at once. By the end, you should see that asynchronous code is not magical at all, but nevertheless incredibly useful.",async,,,,,"I will live code in this talk, so I will need some sort of hands-free microphone. A microphone stand is perfectly fine.
+
+I am aware that generally live-coding during a talk is considered a terrible idea, however I am confident in my ability to give this talk and have done so twice already. I also have backup solutions should there be a problem with my code."
+Beyond JSON and XML: An introduction to Protocol Buffers and gRPC with Python,"When we start looking at the options that we have for inter-service communication, really we only have two options. The first and very popular option that a lot of people choose is RESTful, and the other ones are RPC. One of the difference is RESTful architectures are going to be sending plain text messages back and forth, as you might guess it mainly uses JSON and XML. RPC, on the other hand, is often going to leverage binary based messages. Now this gives RPC an advantage in many situations because binary messages are typically much smaller than text-based messages data. With all of these facts, Protocol Buffers and gRPC come in. Both created by Google to solve their problem in infrastructure application. Protocol Buffers has many advantages than JSON or XML. It fast, efficient, simpler. You only need focus to optimize your code to serialize, deserialize data and how much network bandwidth is being utilized. gRPC is a modern open-source high-performance RPC framework that can run in any environment. It by default using Protocol Buffers as a transport protocol. With two of these combine, gRPC and Protocol Buffers are the cross-platform and scalable framework to create your fast and efficient interservice communication application.","Python, Web, REST, API, RPC, JSON, Flask, Django, Web programming including frameworks (Django / Flask / Pylons etc.)",,,,,"The technical requirements for this talk are:
+1. Familiar with Python Web Application, e.g., Flask, Django
+2. Familiar with JSON and XML
+3. Familiar with RESTful API and RPC"
+Chaliceではじめるらくらくサーバーレスアプリ開発,"Chaliceを使ったサーバーレスアプリケーション開発の基本をデモを含めてご紹介します。
+
+* サーバーレスアプリケーションとは
+* Chaliceとは	 
+	* APIバックエンドの構築
+	* Chaliceを用いたデプロイ
+	* CI/CDパイプラインの構築
+* Demo
+* サーバーレスアプリケーション開発のポイント","サーバーレス, AWS, クラウド",,,,,対象：Pythonによるサーバーレスアプリケーション開発に興味のある方
+Creating amazing APIs in Flask with Flask RESTplus,"I have been using Flask with Flask RESTplus to create REST API based backend projects for around 3 years now. For those who don't know, Flask RESTplus is an amazing library for REST API development with features like automatic live documentation, input payload validation, neat code organization, automatic response marshaling and a lot of extensibility. You can easily extend it to include other features like response pagination, ETag caching, rate limiting, custom authentication and authorization system and basically anything else you can imagine. In this talk, I will share my hard gained knowledge with code snippets on how to quickly get started and do all these amazing things in Flask RESTplus. ","python, flask, flask-restplus, rest-api, Web programming including frameworks (Django / Flask / Pylons etc.)",,,,,"I would be doing a live demo so an Internet connection would be required.
+
+I feel I am a good, if not the best person to speak on this topic because I have had a lot of experience using Python, Flask and Flask RESTplus for creating backend applications. I have used this technology in notable open source projects such as [Open Event Server](https://github.com/fossasia/open-event-server), with startups such as [HapRamp](http://hapramp.com/) and with prestigious clients as part of my contracting job at [Toptal](https://www.toptal.com/resume/avi-aryan). So I can confidently say that I am really good with it, and therefore suitable to speak on this topic."
+Deep Learning Vision in vanilla Python: CNN - Framework = Vision in vanilla Python.,"This session would basically focus on python and it's ecosystem and how well it goes up with the current research paradigm shift that is happening due to the boom in Artificial intelligence. The session would help developers to amass the importance of mathematics and the ease that python provides in coding it, even from scratch. This would encourage the developers only to try more and more python programming for deep learning. For a nascent developer, this session packs in a high educational reward as he will be exposed to the mathematics behind the most successful algorithm of the past couple of decades.
+
+This workshop aims to provide a look through the abstraction offered by big frameworks for developers to understand why mathematics behind data science is necessary yet, give them the insight into why abstraction is a key player in deep learning.
+
+## Q. What can developers expect from this workshop!
+1. Understand what are convolution neural networks
+2. Why they work so well on image data?
+3. All the different implementation of Convolution network and how they improve the vanilla network
+4. What are the best ways to implement convolution network on a given data
+
+## Q. What this workshop is not!
+1. Just another workshop telling you to use frameworks
+2. Mathematics will not be looked over. (It's important)
+
+This session would provide a much-needed exposure to python programming language and how its ecosystem helps deep learning so well.","Python, Numpy, Deep Learning, Computer Vision",,,,,"_**First things first**_
+
+The technical requirements of the talk would include:
+
+- A room with wifi-availability
+
+- Attendees would be provided a download script by me which they should run before the talk
+
+# Q. Why you're the best person to speak on this subject?
+
+I am the best one to speak on this subject because I have a lot of experience in the field of AI, especially Deep learning/ Machine learning. I'm an undergraduate research fellow at 2 separate institutes and have an understanding of fundamental concepts of reinforcement learning. I have reviewed a book on reinforcement learning and can code agents too.
+Another, reason I would prove to be an excellent choice is that I can explain things well. I have mentored at 4-5 different occasions and have a good track record with students. I was in Standford Scholar initiative where I represented two paper which was related to deep learning only. Currently, I'm a student developer at Google Summer of Code and thus I can communicate the code well and make the audience understand better.
+
+## A request.
+
+I'm from New Delhi, the capital city of India, if PyCon JP gets interested in my talk, I would highly appreciate if I can receive an early decision so that I can plan an itinerary as soon as possible.
+
+*I will upload the slides in a few days.*
+"
+Development with Python,"# ソフトウェア開発時の生産性を向上させるためのpython製ツールを紹介します
+開発生産性を向上させるちょっと便利なPython製ツールを紹介します。
+
+## 個別テーマ
+- HTTP
+  - httpbin, httpie
+- SMTP
+  - DebuggingServer
+- MySQL
+  - mycli
+- git
+- JSON
+  - python -mjson.tool
+- MITM
+- Error Tracking
+  - sentry
+- etc","Python, DevTool",,,,,Contents チームスタッフなので、採択予備的なものです。あと応募者の気持ちを知りたかったので、応募してみました。
+DIY IoT (Internet of Tums) Health Tracking,"The internet of things is here, but there are a ton more use cases than smart fridges and connected lights. I started with a cheap dev board, a button, some batteries, and a box of antacids but ended up with a detailed list of my symptoms that my doctor and I were able to use to get to the bottom of my condition. I'll walk through how I built a simple wi-fi connected TumsⓇ container that uses a combination of web APIs and serverless functions to log whenever I am feeling the burn. From the hardware, firmware and software, I'll talk about how Python can be used throughout the stack. Hopefully you will walk away with inspiration for some of the more niche use cases that simple and cheap IoT devices can solve _and_ the skills to build your own. ",Internet of Things,,,,,"I am somewhat new to Python, but have been working, tinkering & hacking in the IoT space for years, just usually in other languages. It has never been easier (or more fun!) for software engineers to make the jump to the real world and start playing around with the Internet of Things. I am happy to take notes on the topic if you want to scope it to something more complex (power saving for example, was a big part of this project) or go more in depth on a single aspect of the system. "
+Djangoのセキュリティ対策詳解,"Djangoはセキュリティに関して、本セッションでは、次に示す主要な4つの攻撃手法に対してDjangoが行っている対策を実演を交えて解説します。
+
+* クロスサイトリクエストフォージェリ (CSRF)
+* クロスサイトスクリプティング (XSS)
+* SQLインジェクション
+* クリックジャッキング
+
+これらの攻撃がどのように実行されるのか、どのように防げるのか、Djangoの実装はどうなっているのかを解説します。","Djagno, Security",,,,,"実際に4つの攻撃手法に対する脆弱性を含めた、デモアプリケーションも用意しています。
+本番ではライブコーディングや実演を含めて解説したいので、マイクスタンドもしくはピンマイクをお願いしたいです。"
+Effective Python in Python 3.7,"# Effective Python in Python 3.7
+
+Talkの短縮版で、以下から抜粋する。
+
+- Python 2.7は EOLへ、これからはPython 3.7の時代（項目1）
+- 辞書やタプルの代わりにData Class （項目22）
+- メタクラスを使わないメタプログラミング（項目32, 33, 34）
+- 並列と並行、そして非同期（項目41）
+- docstring、そしてtype hints（項目49）
+- pyvenvの廃止、pipenv（項目53）
+- Build-in Breakpointの登場（項目57）",Best practices,,,,,"## 備考
+
+- 『Effective Python』は査読者として関わりました。
+
+## 過去の発表履歴
+
+### 2016年
+
+- 「PyConJP で感じる私の成長」PyCon JP 2016 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/pyconjp-degan-zirusi-falsecheng-chang) [Youtube](https://youtu.be/O1-9Yv9cB8Q?t=16m24s)
+
+### 2017年
+
+- 「Effective Python in Python 3.6」 Python 3.6 Release Party Lightning talk [Slide](https://speakerdeck.com/hayaosuzuki/effective-python-in-python-3-dot-6)
+
+- 「How to Write Functions in Python」PyCon JP Reject Conference 2017 [Slide](https://speakerdeck.com/hayaosuzuki/how-to-write-functions-in-python)
+
+- 「Respect the Built-in Names」PyCon JP 2017 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/respect-the-built-in-names) [Youtube](https://youtu.be/cUewj2kRrbk?t=13m13s)
+
+- 「技術書査読・校正の現場から」BPStudy #123 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/ji-shu-shu-cha-du-xiao-zheng-falsexian-chang-kara)
+
+### 2018年
+
+- 「レガシーDjangoアプリケーションの現代化」DjangoCongress JP 2018 [Slide](https://speakerdeck.com/hayaosuzuki/a-modernization-of-legacy-django-based-applications)
+
+## 技術書の査読
+
+- 『[Effective Python](https://www.oreilly.co.jp/books/9784873117560/)』オライリージャパン 2016年1月
+- 『[アルゴリズムクイックリファレンス 第2版](https://www.oreilly.co.jp/books/9784873117850/)』オライリージャパン 2016年12月
+- 『[初めてのPHP](https://www.oreilly.co.jp/books/9784873117935/)』オライリージャパン 2017年3月
+- 『[Effective Debugging](https://www.oreilly.co.jp/books/9784873117997/)』オライリージャパン 2017年6月
+- 『[スラスラわかるPython](http://www.shoeisha.co.jp/book/detail/9784798151090)』翔泳社 2017年8月
+- 『[PythonとJavaScriptではじめるデータビジュアライゼーション](https://www.oreilly.co.jp/books/9784873118086/)』オライリージャパン 2017年8月
+- 『[初めてのPerl 第7版](https://www.oreilly.co.jp/books/9784873118246/)』オライリージャパン 2018年1月
+- 『[Head First Python 第2版](https://www.oreilly.co.jp/books/9784873118291/)』オライリージャパン 2018年3月
+- 『[Pythonデータサイエンスハンドブック](https://www.oreilly.co.jp/books/9784873118413/)』オライリージャパン 2018年5月"
+Effective Python in Python 3.7,"# Effective Python in Python 3.7
+
+- Python 2.7は EOLへ、これからはPython 3.7の時代（項目1）
+- 辞書やタプルの代わりにData Class （項目22）
+- メタクラスを使わないメタプログラミング（項目32, 33, 34）
+- 並列と並行、そして非同期（項目41）
+- docstring、そしてtype hints（項目49）
+- pyvenvの廃止、pipenv（項目53）
+- Build-in Breakpointの登場（項目57）",Best practices,,,,,"## 備考
+
+- 『Effective Python』は査読者として関わりました。
+
+## 過去の発表履歴
+
+### 2016年
+
+- 「PyConJP で感じる私の成長」PyCon JP 2016 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/pyconjp-degan-zirusi-falsecheng-chang) [Youtube](https://youtu.be/O1-9Yv9cB8Q?t=16m24s)
+
+### 2017年
+
+- 「Effective Python in Python 3.6」 Python 3.6 Release Party Lightning talk [Slide](https://speakerdeck.com/hayaosuzuki/effective-python-in-python-3-dot-6)
+
+- 「How to Write Functions in Python」PyCon JP Reject Conference 2017 [Slide](https://speakerdeck.com/hayaosuzuki/how-to-write-functions-in-python)
+
+- 「Respect the Built-in Names」PyCon JP 2017 Day1 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/respect-the-built-in-names) [Youtube](https://youtu.be/cUewj2kRrbk?t=13m13s)
+
+- 「技術書査読・校正の現場から」BPStudy #123 Lightning Talk [Slide](https://speakerdeck.com/hayaosuzuki/ji-shu-shu-cha-du-xiao-zheng-falsexian-chang-kara)
+
+### 2018年
+
+- 「レガシーDjangoアプリケーションの現代化」DjangoCongress JP 2018 [Slide](https://speakerdeck.com/hayaosuzuki/a-modernization-of-legacy-django-based-applications)
+
+## 技術書の査読
+
+- 『[Effective Python](https://www.oreilly.co.jp/books/9784873117560/)』オライリージャパン 2016年1月
+- 『[アルゴリズムクイックリファレンス 第2版](https://www.oreilly.co.jp/books/9784873117850/)』オライリージャパン 2016年12月
+- 『[初めてのPHP](https://www.oreilly.co.jp/books/9784873117935/)』オライリージャパン 2017年3月
+- 『[Effective Debugging](https://www.oreilly.co.jp/books/9784873117997/)』オライリージャパン 2017年6月
+- 『[スラスラわかるPython](http://www.shoeisha.co.jp/book/detail/9784798151090)』翔泳社 2017年8月
+- 『[PythonとJavaScriptではじめるデータビジュアライゼーション](https://www.oreilly.co.jp/books/9784873118086/)』オライリージャパン 2017年8月
+- 『[初めてのPerl 第7版](https://www.oreilly.co.jp/books/9784873118246/)』オライリージャパン 2018年1月
+- 『[Head First Python 第2版](https://www.oreilly.co.jp/books/9784873118291/)』オライリージャパン 2018年3月
+- 『[Pythonデータサイエンスハンドブック](https://www.oreilly.co.jp/books/9784873118413/)』オライリージャパン 2018年5月"
+Find Vulnerability on Your Python Code,"Find vulnerability on development stage should be implemented to find vulnerability on earlier stage (development stage) on Software Development Life Cycle (SDLC). Most of vulnerability found on final stage of SDLC through penetration testing. Security issues were accidentally created on design and development stage, meanwhile developer couldn't identify the vulnerability because they should wait until application passing through penetration testing, which mean on final stage. If vulnerability figured out by developer earlier, they can realize and fixed the vulnerability without waiting till penetration testing.
+
+Static Application Security Tools (SAST) can be used to find vulnerability on development stage. SAST is a set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities""(gartner.com).
+
+This topic will cover how to find vulnerability using free/open source SAST. It will cover SAST which has capability to scan python. SAST usage will demonstrate with several scenario, CLI usage and Jenkins integration. Jenkins is open source CI/CD tools commonly used for supporting Devops.
+","python security, python",,,,,"so, how this topic is relevant to python developer audience ? because this topic will cover how to find security issue using free/open source Static Aplication Securtiy Testing (SAST) tools which specially created for python programming language. This topic will cover demo on CLI usage and jenkins integration
+
+So that, python developer will be able to find vulnerability on their python code and make secure code without waiting for penetration test result."
+GitLabの肩に乗るPythonパッケージングとデプロイ,"GitLabはGitHubやBitBucketと同じく、ソースコードの共有が可能なサービスです。
+ソースコード管理としての機能については大きな差はありません。
+その一方で、GitLab-CIやGitLab RegistryといったDevOpsなどの実現に便利なツールを多数自前で持ち、
+**プロジェクト進行（課題管理・テスト・デプロイ）を円滑に進めるプラットフォーム**としての側面を持っています。
+
+Pythonパッケージは、ソースコードとインストールできる仕組みが最低限必要ですが、
+ドキュメントやデモなどがあるとより使われやすくなるかと思います。
+
+GitLab.comという巨人の方に乗っかり、
+
+* 自動でパッケージングする
+* 最小限のトリガーでPyPIへリリースする
+* ついでにデモサイトを作り
+* ドキュメントを公開する
+
+流れを紹介します","System administration, Packaging",,,,,"## 話す予定のもの
+
+* [GitLab.com](https://about.gitlab.com/)
+    * GitLab本体のサイト
+* [GitLab-CI](https://about.gitlab.com/features/gitlab-ci-cd/)
+    * GitLabに内包されるCI/CDツール
+    * GitLab Runnerについても触れる予定
+
+## 話さない予定のもの
+
+* パッケージングの作法など
+
+## 主なターゲット
+
+* Pythonパッケージを公開している人、公開してみたいと思っている人
+    * そして、なるべく手間をかけずに実現したいと思っている人
+* 「GitLabがどんなことを実現できるのか」を知ってみたい人
+
+"
+Interactive Network Visualization using Python 〜 NetworkX + BokehでPEPの参照関係を可視化する,"# 目的 ：このセッションを聞くと何が得られるの？
+- Pythonでグラフ構造のインタラクティブな可視化を実現する手段のひとつとして、NetworkXとBokehを組み合わせる方法を紹介します。
+
+# 動機：なぜ、この発表をするの？
+- SNSの友達関係や論文の引用関係など、世の中には何かと何かの「つながり」の構造がたくさん存在します。このようなグラフ構造（ネットワーク構造）を可視化するライブラリやツールは各種ありますが、普段Python を使っている立場からすると、前処理から可視化までPythonで一気通貫できると嬉しいものです。
+- Pythonでグラフ構造を扱えるライブラリ・NetworkXは、昨年2017年に約7年ぶりのメジャーバージョンアップをしましたが、現在市販されている書籍では最新バージョンを扱った紹介例があまりありません。
+- また、インタラクティブな可視化ライブラリであるBokehは、昨年リリースされたバージョン0.12.7でグラフ構造をサポートするようになりましたが、これも公式サイト以外になかなか日本語の情報がない状況です。
+- 本セッションでは、NetworkXとBokehを使った可視化のノウハウをコードを交えながら共有します。
+
+# アウトプット: 具体的に、どんなものが作れるようになるの？
+NetworkXとBokehを組み合わせることで、以下のようなWebページを作れるようになります。   
+[DEMO(動画)](https://youtu.be/tIRxJxiOrGA)   
+※ 画面は2018年1月時点のプロト作成中の画面であり、実際のセッションで紹介する最新版とは異なる可能性があります。",Machine learning and data science,,,,,"- talk: 日本語
+- slide: 日本語, 英語併記
+"
+Introduce syntax and history of Python from 2.4 to 3.7,"I think we began to use Python in some production systems at 2.3 or 2.4. I think Python 2.4 had enough functionality to build any system. Many tools ware created and used. 
+
+Python 2.4 was released nearly 15 years ago. Since then Python has been steadily evolving.
+Although it is possible to create a system with only Python 2.4, it is necessary to know the latest Python trends in order to write code that is better, more maintainable, and more performance-oriented.
+
+There are also features and grammar in the web knockout that are often overlooked, not only by new python users, but also by seasoned Python veterans. 
+I will introduce those features and grammar that I think are important while comparing the grammar and functions incorporated in Python 2.4 and now.","Python, Beginner, Intermediate",,,,,"本トークは、PyCon APAC 2018 SGやPyCon TH 2018で行うトークと同じものです。資料は英語で書きます。トークは日本語でも英語でもどちらでも構いません。
+内容はこの資料とほぼ同等になります。 https://speakerdeck.com/terapyon/introduce-syntax-and-history-of-python-from-2-dot-4-to-3-dot-6-pycon-thailand-2018
+
+For example:
+
+The below same means code.
+Python2.4
+
+```
+    f = open(""filename.txt"", ""r"")
+    data = f.read()
+    f.close()
+```
+
+Python2.6 +
+
+```
+    with open(""filename.txt"", ""r"") as f:
+        data = f.read()
+```
+
+Python2.4
+
+```
+    from datetime import date
+    print ""Today: %s"" % date.today()
+```
+
+Python 2.6 +
+
+```
+    from datetime import date
+    print(""Today: {}"".format(date.today()))
+```
+
+Python3.6 +
+
+```
+    from datetime import date
+    print(f""Today: {date.today()}"")
+```
+## Target
+
+- Who want to know the new syntax of Python
+- Who want to learn the history of Python
+
+## Outline
+
+- Self introduction (2min)
+- The history of Python by release date (3min)
+- Important changes in each versions between Python 2.4 and Python 3.6 (7min)
+  - Python 2.4
+  - Python 2.5
+  - Python 2.6
+  - Python 2.7
+  - Python 3.0
+  - Python 3.1
+  - Python 3.2
+  - Python 3.3
+  - Python 3.4
+  - Python 3.5
+  - Python 3.6
+  - Python 3.7
+- To compare the old style with the new style for the syntax and the structure (15min)
+  - “”.join() vs “”.join([])
+  - import () Multi-line Imports
+  - list.sort vs sorted(list)
+  - Conditional Expressions
+  - with
+  - %s vs str.format vs f-string
+  - except Exception, e vs except Exception as e
+  - print statement vs print() function
+  - / vs //
+  - dict Comprehensions and more
+  - OrderedDict vs default dict
+  - enum
+  - @ operator
+  - os.listdir() vs os.scandir() 
+  - yield from
+  - Coroutines with async and await syntax
+  - Asynchronous Generators
+  - pathlib
+  - secrets module
+- Q&A (3min)
+"
+Kubernetsを使ってクローリング/スクレイピング環境の構築してみたお話,"# どういったものを使うか
+- Scrapy
+- Kubenetes
+- Docker
+- ElasticSearch
+- BigQuery
+等を使う予定
+
+# Kubernetsをつかった構築例
+- GKEかminikube
+
+# 感想等
+- 作ってみた感想
+
+# 注意点
+- 開発は個人範囲の利用で行っています．そのため企業で活用するためには不十分かもしれません","Scraping, crawling, Scrapy",,,,,"Scrapyが出てきたことによってスクレイピングは格段にしやすくなった．しかしデータの保存等を考えると少し面倒である．
+それらをDockerコンテナで管理できるとより良いスクレイピングができるのではないか，またデータを管理する手間が少しでも減るのではないかと思い作ってみようと思った
+
+30分でいけるかわからないが頑張ろうと思う
+"
+"Learning how to go fast, Lessons from the OpenAI Retro Contest","In this talk I'll go through what I learned in participating in the Open AI Retro Contest. First I'll talk about the retro gaming environment, Gym Retro and how that is used to train the agents. Next I'll outline three of the baseline reinforcement learning techniques that were used as baselines in in evaluating the contest's difficulty.  Finally, I'll discuss the contest winners, what their strategies were and how you can get started training your own models to play retro games. ",Machine learning and data science,,,,,"I am somewhat new to the python space, but am excited to share what I have learned with the community. Although I did not win the contest, I was awarded a prize for best supporting tool, and I created many blog posts describing the contest and their agents, such as this [one](https://medium.com/@tristansokol/making-fun-visuals-history-maps-and-other-tool-improvements-eb5ffe187fd3?source=user_profile---------6-------------------). 
+
+I have spoken in Japan [before](https://www.youtube.com/watch?v=INuC_FztCBc) and would love the opportunity to do so again. My employer will likely cover all of my expenses. "
+NetworkXで広がるPythonの楽しみ方 〜 一番「重要」なPEPはどいつだ!?,"「ネットワーク分析の観点でPEPを色々な角度から楽しもう! 」という企画です。
+ネットワーク分析とは、SNSの友達関係や論文の引用関係など、「何か」と「何か」の関係構造を探るために使われる手法です。本セッションでは、現在(※) 450以上あるPEP文書から「どのPEPがどのPEPを参照しているか」その参照関係のデータを抽出し、可視化・指標を算出した結果を紹介します。   
+また、セッションを聞いた方が実際に手元でデータを確認して楽しめるよう、PEPの参照関係ネットワークをインタラクティブに可視化した現在開発中のWebページを紹介します。  
+(※) 2018年6月現在
+
++ PEPとは 〜 数字で見るPython Enhancement Proposal
++ ネットワーク分析とNetworkX
++ 「重要」ってなんだろう？　
+    - 入次数で見てみよう: 一番他のPEPから参照されているPEPはどいつだ!?
+    - 出次数で見てみよう: 一番他のPEPを参照しているPEPはどいつだ!?
+    - PageRankで見てみよう: Webページのランク付け！
+   
+など
+",Anything else basically which doesn’t really fall into the types of topics above,,,,,"- talk: 日本語
+- slide: 日本語, 英語併記
+"
+PandasのDataFrameをオブジェクト指向っぽく扱えるDataFrame Mapperを作った,,"Pandas, Python",,,,,
+PEPってなんだろう。PEPについて調べてみた,"## PEPのワークフロー
+- PEP1
+- JavaのJCPと比べてみる
+- グイドさんが独裁しているの？
+
+## 有名なPEP
+- PEP0
+- PEP8
+- PEP20
+
+## PEPの種類
+## 日本人のPEPへの貢献
+## PEPを読んでみよう",,,,,,"LTでしたが、PEPの決め方とかを調べて発表しました。
+結構楽しかったので、更に書き足して発表いたします。
+
+https://gist.github.com/okusama27/d807842288d85af6fea7ea809964cdfe
+
+発表はJava女子部でやったので、Pythonの基本的な話が混ざっていますが、こちらは省略します。
+
+楽しいPEPはこれから調べます。"
+PyCharm逆引き辞典,"多くのプログラマにとってエディタが大事な仕事道具であるように、PythonユーザにとってJetBrains製のIDE「PyCharm」は右腕と言っても過言ではありません。
+しかし、高機能なIDEであるがために単なる補完が優秀なPythonエディターとして使っている人も少なくないと思います。
+
+時間の許す限り、PyCharmで最低限必要な設定から、使いこなすと便利な機能、ニッチな機能までを紹介します。
+
+* Professional版の導入 (学生は無償で使える!)
+* 仮想環境の設定
+* charmコマンド
+* gitコマンド
+* 差分を見る
+* vim diffにPyCharmの差分表示を使う
+* リファクタリング
+* LiveTemplate(snippet)
+* REST Client
+* Databaseへの接続
+* IdeaVim
+* 画面分割
+* ファイル検索(SearchEverywhere含む)",Programming tools,,,,,資料、トークともに日本語の予定です
+PyCon 2018 Clevelandの参加体験を発表,"2018年5月に行われたPyCon(Clevelad)の参加について、参加の感想と現地の様子を以下の内容で話したいと思います。  
+1.PyConUSに行くきっかけ。  
+2.PyConUSに行ったルート。  
+3.会場の様子。  
+4.当時のプログラム紹介  
+5.来年のPyConUS情報  
+6.これからのPythonコミュニティに期待すること。",Anything else basically which doesn’t really fall into the types of topics above,,,,,"2018年5月に行われたPyCon(Clevelad)に参加した内容をお話しします。
+アメリカの各地域のPyladiesのメンバーとの交流や、世界各地のPyladiesメンバーと交流したこと。
+Pyladies Auctionに参加して楽しんだこと。英語をより勉強することによって道が開かれれること。
+アジアからの参加者は、中国、韓国の方がいたが日本人は少なかった印象がある。
+私が確認できたのは日本からの参加者は3人で、みんな自分自身を高めようと思っている人だった。
+本場アメリカのPyConUSの模様を写真と体験談を元にLightningトークとしてご紹介したいと思います。
+2019年も同じ場所Clevelandで行われるので、どのようなルートで行ったかなどを話し、これをきっかけに日本からも参加者が増えコミュニティがより活性化するのを期待します。"
+PyLadies Handbookの翻訳活動,"**PyLadies Handbook** 翻訳への取り組みと、翻訳した内容の紹介を行います。
+
+# PyLadies Handbookとは
+
+PyLadies とは、世界中に存在するPythonistaな女性が集まるコミュニティです。
+世界中にPyLadies リージョンコミュニティが存在しますが、「PyLadies」と名乗るにはいくつかの条件や規範などがあります。
+そのうちの一つがこのPyLadies HandBookに則した運営を行い、PyLadies HandBookに則したコミュニティであること。
+PyLadies に参加するにあたっての心構えや、コミュニティとして知っておいてほしいことがぎゅっとまとめられたものです。
+
+http://kit.pyladies.com/
+
+# 翻訳への取り組み
+PyLadies Tokyo発足から4年目を迎えた今日この頃。新しい運営メンバーも新しいメンバーも急速に増えてきたことですし, 英語が苦手な方にもぜひ知ってもらおうと思い、今回の翻訳プロジェクトを発足しました。
+
+## 取り組み
+最初は、[PyLadies Tokyo 秋合宿 2017 ](https://pyladies-tokyo.connpass.com/event/64432/) から始まりました。
+定期的に翻訳イベントを開催しています。",,,,,,"現在、3回の翻訳イベントの開催、GitHubページの整備を行っています。7月以降もイベントを翻訳が終わるまで月1回は開催していきます。
+
+- [PyLadies Tokyo 秋合宿 2017 ](https://pyladies-tokyo.connpass.com/event/64432/) 
+- [PyLadies Handbook 翻訳しNight 〜第2夜〜 ](https://pyladies-tokyo.connpass.com/event/72170/)
+- [PyLadies Handbook 翻訳しNight 〜第3夜〜 ](https://pyladies-tokyo.connpass.com/event/89219/)"
+pytestによるCIレボリューション,皆さんはPythonでユニットテストやCIツールを使いこなせているでしょうか？そういった悩みへの参考としてユニットテストやCIツールの概要や種類について解説をしてから、その中でもPytestを使った場合のメリットや開発プロセス全体への波及効果について発表します。,Programming tools,,,,,"アジェンダ案
+=====
+
+自己紹介
+-----
+
+来場者への質問
+-----
+
+* ユニットテストを使ったことある人
+* CIツールを使ったことある人
+
+Pythonで利用可能なユニットテスト、CIツール
+-----
+
+* ユニットテストの種類
+* CIの種類
+
+ユニットテスト
+-----
+
+*  ユニットテストの概要
+*  pytestの概要
+*  pytestの高度な機能
+
+CIツール
+-----
+
+*  CIツールの概要
+*  CIツールがクラウドやコンテナベースに進化していること
+* CircleCIの概要
+* CircleCIの高度な機能
+
+かっこいいCIを行なっている他社事例
+-----
+
+参考文献など
+-----
+
+まとめ
+-----
+
+-----
+
+参考実績
+=====
+
+* [PyCon JP 2016トーク発表「Blockchain for Pythonistas」](https://speakerdeck.com/abenben/blockchain-for-pythonistas)
+* [書籍：Python Testing with pytest（翻訳中：翻訳レビュアー）](https://pragprog.com/book/bopytest/python-testing-with-pytest)
+
+-----
+
+関連タグ
+=====
+
+ユニットテスト、CI、pytest、CircleCI、クラウド"
+Python astモジュール入門,"Pythonで書かれたソースコードを機械的に解析・修正・生成したいことがあります。
+
+簡単なソースコードであれば、標準モジュールの `re` や `inspect` などで十分かもしれません。
+
+ただ、それらでは難しい場合、Pythonの標準モジュール `ast` を使うのはいかがでしょうか。
+
+astモジュールでは、PythonのソースコードからAST(Abstract Syntax Tree、抽象構文木)をPythonオブジェクトとして取得・処理できます。
+
+また、型ヒントのようにPythonへ機能が追加されたとしても、ASTを元にした対応ができます。
+
+この発表では、
+
+* ASTとは
+* Pythonのastモジュールとは
+* ast.NodeVisitorを使ったソースコード解析
+* ast.NodeTransformerを使ったソースコード変換
+
+などを、実例を交えながら解説します。
+
+なお、話さないこと（話せないこと）は以下です。
+
+* Python astモジュールを使って、すごいツールを作って公開した話や経験","Programming tools, Standard library",,,,,"資料およびトークともに日本語です。
+
+[DjangoCongress JP 2018](https://djangocongress.jp/)にスピーカーとして参加しました。([Django/WSGIミドルウェア入門](https://speakerdeck.com/thinkami/django-congress-jp-2018-talk))
+
+アカウントなどです。
+
+* [GitHub](https://github.com/thinkAmi)
+* [はてなブログ](http://thinkami.hatenablog.com/)"
+Python Changes My World!!〜独学で変わる世界〜,"## 経歴
+
+- Software Engineer 3年目(2018年6月)
+  - 社内にPythonistaはいない環境
+- 2017年11月頃からPythonを趣味でスタート
+  - [モザイクアート作ってみた](https://speakerdeck.com/ftnext/pillow-mosaic-art-nyumon)
+- 2018年1〜3月機械学習案件
+  - 機械学習のバックグラウンドがなく、社内に閉じていても解決しないと察し、勉強会でひたすら質問
+- 2018年4〜6月FlaskでAPI開発
+  - デプロイでハマりながらも、コミュニティの力を受け、Azureへのデプロイ方法を習得
+- 2018年8月〜 Python独学でのアウトプットがきっかけとなり転職します！
+
+## 独学でやったこと
+
+自分の独学経験を整理して共有したいと思います。  
+こういうことをやったらこうなりました。みなさんもやってみてはいかがですか、と主張するLTです。
+
+- 自分が作りたいものをつくる(モザイクアート)
+- 定期的にコミュニティに顔を出す
+  - もくもく会
+  - みんなのPython勉強会
+- やったことをアウトプットする
+  - みんなのPython勉強会のLTを目標に、独学を進める
+  - うまくいかないことをアウトプットすると、答えてくれる人がいる(Twitter) 本当に感謝
+  - ブログやLTなどのアウトプットがきっかけで転職の話が来た！",Community building and human interaction,,,,,大変恐縮ですが、技術的な話にはならない予定です。(おそらくエモい話に分類されるLTだと思います)
+Pythonistaがオープンデータを活用したら地方活性化は狙えるか,"行政が提供しているオープンデータというのは、公共物が多い関係から活用すればかなりの利便性を見込めるはずです。
+
+ただし、市職員はエンジニアではないですし、手作業でエクセルファイルを作成して「オープンデータです！」と言われても、
+非正規化のデータがほとんどなのでエンジニアの活用意欲をparseの時点で削ぎ落とします。
+
+そもそもオープンデータ、オープンデータといいますが、
+行政はどのようなデータをどういった形で公開してるのかを知らない人も多いのではないでしょうか。
+
+本LTでは私の現住所である長野市にどのようなオープンデータがあるか、
+そしてそのデータ活用し、どうすればもっと盛り上がるか考察した結果を紹介します。",Anything else basically which doesn’t really fall into the types of topics above,,,,,"資料、トークともに日本語です。
+
+発表者アカウントなど
+
+* [Qiita](https://qiita.com/moonwalkerpoday)
+* [twitter](https://twitter.com/moon_in_nagano)
+* [github](https://github.com/jsl-takino)"
+Pythonエンジニアになろう,"## 見習いPythonistaへの道のり
+
+### Level0. Pythonとの出会い
+- 経歴や興味について
+- 数ある言語の中からPythonを選ぶ理由
+
+### Level1. Pythonそのものの勉強
+- 入門書について
+
+### Level2. 言語以外の基本知識
+- シェルやGitなど開発に必要な分野の勉強
+
+### Level3. 何か作ってみる
+- 読書に疲れたら、作って遊ぶ
+
+### Level4. WEBを学ぶ
+- アプリケーションを作る前にHTTPなどの基礎を学ぶ
+
+### Level5. アプリケーションを作る
+- アプリケーションを実際に作ってみる
+- ユーザーとして触ってみる
+
+### Level6. エンジニアになる
+- 職を探す",Python,,,,,
+Pythonでオリジナル言語を作ってみよう,"Pythonを使ったオリジナル言語の作り方に加えて、以前、作成したPPAPScript(https://github.com/ryo-ma/PPAPScript)の紹介をします。
+PPAPScriptとは、世界的に有名となった「PPAP」の曲を元に作成したプログラミング言語です。皆さんも自分だけのユニークなオリジナル言語を作ってみましょう。
+
+* オリジナル言語について
+* PPAPScriptについて
+* PLYの紹介",PLY,,,,,
+Pythonで型を使ってみる,"* TypeHintの書き方
+* チェックのかけ方
+* サードパーティライブラリを含む場合の対処法",TypeHint,,,,,
+Pythonで多重継承Mixin,"Pythonでは言語レベルでの多重継承がサポートされています。それゆえ、多重継承ができない言語等とは書き方が大きく異なります。さらに多重継承の動作は言語ごとに動作が異なり、PythonではPython特有の動作をします。
+また多重継承と近いトピックとしてMix-inが存在します。（厳密にはPythonにはMix-inは存在しませんが）この機能は実開発でもバンバン使われているテクニックです。
+
+このLTでは実際の実開発に照らし合わせ、多重継承の利便性、ハマりどころについて語ります。
+実行可能なPythonコードを実行して実際の動作も追いながら説明します。
+
+Python's ｍultiple inheritance is very unique than other ｍultiple inheritance supported languages.
+I introduce Python's multiple inheritance good points and bad points.",Anything else basically which doesn’t really fall into the types of topics above,,,,,"実演に使ったコードはGithubリポジトリにて公開します。
+I will publish on GitHub, later.
+"
+Pythonにおける関数ってなんだろう？,"# Pythonの関数ってなんだろう？
+Pythonには関数があります。一方でメソッドもあります。この違いは何でしょうか？selfを書いたからメソッド？でも関数に見えるし…そしてそもそも__call__とは？<br>
+はてさていったい関数とは何なのでしょうか？その謎をあきらかにすべく我々はPythonの奥地へ向かった。",Anything else basically which doesn’t really fall into the types of topics above,,,,,"# 本セッションについて
+トークも資料も日本語です。
+
+# 登壇経歴
+1. PyCon JP 2017 LT Pythonが動く仕組み(の概要)
+1. JJUG CCC 2017 Fall JVM上で動くPython処理系実装のススメ (<https://www.wantedly.com/companies/f-code/post_articles/92729>
+1. ScalaMatsuri 2018 もしScala初心者がMonoidを投げ込まれたら (<https://2018.scalamatsuri.org/ja/candidates/YoshiakiShibutani_2/>
+1. ScalaMatsuri 2018 アンカンファレンス JVM上で動く Python処理系を作ってるよ"
+Pythonのデバッグ/プロファイルリング,"Python で デバッグ、プロファイリングをする時に、一度は触るであろう
+pdbやcProfileを皮切りに効率良くデバッグ、プロファイリングをするための方法、
+より良いツール/ライブラリ群の紹介をしたいと思います。主に扱うトピックは以下のようなことを考えてます。
+
+- デバッグ&プロファイリング
+- ボトルネックを見つける
+- パフォーマンス改善Tips
+- ライブラリ&ツールの紹介
+
+Pythonプログラムを修正/改善する時に役立つツール/方法を一通り知ることができます。
+",python,,,,,"デバッグに関しての去年良い発表があったので、プロファイリングに重きを置いて話そうと思います。
+
+- デバッグ&プロファイリングとは
+
+ - pdb
+ - cProfile
+ - timeit
+ - PudB
+
+- ボトルネックを見つける
+ - RunSnakeRun
+ - line_profiler
+ - memory_profiler
+
+- パフォーマンス改善Tips
+
+ - CPUバウンド/IOバウンド
+ - メモリの使用量を削減する
+ - 並行処理
+ - さらなる改善するためには?
+
+- その他ライブラリ&ツール
+ - Benchmarker 
+ - django-debug-toolbar
+ - PyCharm
+"
+pythonユーザーにとってのGraph DB,"今、世の中には、ネットワーク構造を持つデータが増えてきている。
+例えば、SNSの人間関係・自然言語の構文情報・流通情報など。
+それらを処理するためにはRDBでは重すぎるということで、
+その解決策として、グラフデータベースがよく使用されている。
+
+では、グラフデータベースと言って何が思い浮かぶだろうか。
+
+JanusGraph？neo4j?それとも、今年GAになって話題のAWS Neptune？
+人によってさまざまかと思う。
+それぞれ、スケーラビリティ・速度・インターフェースなど比較要素はたくさんある。
+しかし、それらの要素の前に重要なことが一つある。
+私たちはpythonエンジニアだ。つまり、大事なことはpythonからどれほど使いやすいかということではないだろうか？
+
+このセッションでは、各グラフデータベースをpythonから使う場合はどのように使うのか。
+gremlinから扱うのか、それとも独自のライブラリを備えているのか。
+または、それはpythonから使う際に使いやすいのか。
+これらのような、pythonエンジニアにとってのグラフデータベースという観点で発表する。","GraphDB, data science",,,,,"# 目的
+Pythonユーザーがグラフデータベースを使う敷居を下げること。
+
+# 技術的な要件
+Pythonで開発ができること
+グラフデータベースとRDBの違いがわかること"
+Scalable Video Encoder Service with Django on Budget,"# Background
+
+Build e-learning platform on budget with small team is like mission impossible. That technical challenge strike me and my team (only 1 engineer actually) 2 years ago. Bloody iterations and dirty codes is inevitable. The biggest problem in the first time was video encoding system as we have no experience in this field. As time passed, we matured enough and build robust system to tackle the problem.
+
+#  Overview
+
+Video encoder is used by many services to ensure the video is playable to any devices. The most used video format is MP4 which can be used immediately in browser using html5 video player or any javascript available. We have to consider the video size also. So users can view video without throtling. 
+
+We build a service (on budget!) that will copy mechanism of Youtube. Our service use Django Rest Framework as backend and ffmpeg as our low-level video encoder. As video encoder is expensive task, it will be running in different server on demand. Server we used for video encoding is CPU-optimized VPS that only booted when needed. As result it will significantly reduced cost of server without sacrificing performance!
+
+# Results
+
+We reduced our server cost 1/10 and no idle system when no need video encoding.","Web programming including frameworks (Django / Flask / Pylons etc.), Project case studies",,,,,"# Why me?
+
+Small company that has only small pocket will appreciate any means to reduce their costs. Hopefully my experience will help reduce their cost and system design inspiration for future project.
+
+日本語も話せますので、英語を話せない人にもわかりやすいように説明もできます。プレゼンテーションは英語で質問は日本語も対応という形です。"
+The way of optimizing the selection of the combination between the stock symbol and the trade algorithm,"## INTRODUCTION
+In Quantx ( https://quantx.io ), there are a lot of stock investment algorithms for the people who are interested in the asset management.
+Users can earn money by stock trading, selling and buying the stock. Users can also create their own algorithms by the development platform in Quantx.
+In the future, a lot of algorithms will appear.  So, It is an interesting theme to create the super profitable algorithm from the existing algorithms. 
+
+## PURPOSE
+We found that selecting the combination of between the algorithm and stock symbol in a specific period is important factor.
+For example, ""A"" algorithm achieve the better performance with ""A"" symbol in ""A"" period. On the other hand, ""A"" algorithm achieves the bad performance with ""A"" symbol in ""B"" period. Simply, the parameters for this is 1. symbol 2. algorithm 3. period. Thus, We have to choose the most profitable the combination between 1. symbol and 2. algorithm in 3. period
+
+## METHOD
+In oder to choose the promising combination, we evaluated the past result, and choose the one having the good result. From our experiments, we found that the important performance metrics were 1. win-rate 2. total gain in the specific duration, and the consistency having good result in multiple evaluation periods was important. For the coding, Python 3.6.and Pandas DataFrame are used.
+
+## Using Python
+Thanks to the python and the pandas libraries, we could develop in a short period. The original data is the algorithm signal ( boolean) in 2014 ~ 2017 and the data of 500 stock prices in 2014 ~ 2017. 
+At first, We created the all profit data per day for all stocks when using the strategy of buying and selling. After this process, We could get the data that when we buy the stock at a day, the profit gain is what percent. By using pandas, The processing time was just a few minute. The final process is evaluation for selecting the combination between the stock symbol and the algorithm . By using pandas, the processing time was just a second. This was very helpful for us, because the parameter tuning was critical. Adding to this, reading the all heavy pickle data worked well by reducing the processing time.
+
+## RESULT 
+By applying the proposed method to the the existing 5 algorithms and 500 symbols, we could achieve the total profit gain +168.3% in 2017/1 ~ 2017/12.
+Furthermore, We found that using the 5 algorithms were better than using the original one algorithm. This means that collecting a lot of algorithms as much as possible makes sense.
+
+## FUTURE WORK
+In this study, We used the raw algorithms, which were not modified. But, We thought that it was possible to create the new algorithm from the better algorithm created by the above method. The new algorithm is created by inputing the raw algorithms and the algorithms of NOT logic to logic gate(AND, XOR, OR) for having the same stock symbol. The iteration process for leaving the good algorithm might work.","pandas, sytem trade, algorithm trade, fintech, quantx",,,,,"The motivation for proposing this presentation is that I want a lot of people to become interested in this python system trading.
+In Japan, there are a few information about this field. So, It is very difficult to investigate and develop it. Quantx solves this problem.
+
+As a speaker, I developed the above logic with SmartTrade.inc and explain all about the relating things. So, I did apply to the lighting talk."
+"Using Django, DeepSpeech and NLP to create FIFA WORLD CUP Journalist","FIFA WORLD CUP is happening this year and we want to join the vibe of the biggest football event in the world, Python is exist as our programming language but how we can use it to follow every news from the world cup?
+
+By using Django as Web Framework, DeepSpeech as Speech to Text engine and of course Natural Language Generation to generate content that automaticallu posted as robot journalism, we will have robot journalism that powered by Python :).","General Conference, Python, NLP, DeepSpeech, Machine learning and data science, Web programming including frameworks (Django / Flask / Pylons etc.)",,,,,"- We will use Mozilla DeepSpeech to convert speech to text from live football commentator, this is interesting
+- We will use Natural Language Generation to generate the content, and post it as robot journalism.
+- We will train the data from player or nation like, Ronaldo won 5 UEFA Champion League, Germany Lost to Spain in 2010 and more to make thread more interactive.
+- The main process will be Mozilla DeepSpeech > NLP > News post by Robot."
+ソースコードから読み解くgunicorn reloadの仕組み,"## 想定する参加者
+以下のいずれか。
+- gunicornを使ったウェブサービスの開発・運用に携わっている（フレームワークの種類は問わない）
+- ソースコードリーディングに興味がある
+
+## 内容
+### gunicornでreloadする方法2つについて紹介
+- `kill -HUP`
+- `kill -USR2`
+
+### gunicornがシグナルを受け取る仕組みについて解説
+- `os.pipe` を使ったwakeup, sleep
+- `signal` を使ったハンドラ登録
+- `kill -HUP` 送信時の動き
+- `kill -USR2` 送信時の動き",gunicorn,,,,,
+どこでもPythonを書こう！Termuxの可能性と実践に触れてみよう〜,"TermuxはAndroid用のLinux端末です。通常のLinuxマシンとほぼ変わらない感覚で、シェルコマンドが使えて、Pythonを動かすことができます。そしてさらに、Termux-APIプラグインを使えば、Android端末の機能をアクセスすることが可能になります。機種によるが、位置情報、温度のようなセンサーデータ、メッセージ歴や通信履歴を読み込むことができます。また、通知、トースト、text-to-speechなどのコマンドも使えます。
+
+Python標準ライブラリの開発からAndroid端末の機能を駆使したプロトタイピングまで、Termux＋Pythonの組み合わせには大きなポテンサルがあります。このtalkで詳しく紹介しますので、ぜひその可能性を一緒に掴みましょう！
+
+このtalkでは以下のことを話します。
+
+## Termuxの簡単な紹介
+- Termux本体について
+- どうやってTermuxを始めるか？
+- Termuxを便利に使うためのヒント
+
+## PythonをTermuxで動かす方法
+- 環境の準備（batteries included!）
+- Android端末の機能を呼び出すこと
+- できること/できないこと
+
+## Termux＋Pythonを使った事例紹介
+- Android端末のセンサーを使ったIoT開発
+- スマホ通信データのログツール
+- 使わなくなったタブレットをDjangoサーバーとして復活させる
+- など…
+
+（And remember: Don't walk while coding!)","Android, Termux, IoT, Python, Mobile Development, Education",,,,,"関連リンク
+[Termuxプロジェクト](https://termux.com/)
+[Termux Github](https://github.com/termux/)
+[いつでもLinuxコマンドが使える！Androidで動くLinux端末「Termux」](https://linuxfan.info/termux)
+- 動作環境は Android 5.0+ 
+- アプリ自体は無料だが、有料のプラグインもある"
+ばーちゃんAlexaとまーやSlack,"- メールができないので電話したい祖母
+- 仕事中電話が取りづらいので文字チャットしたい私
+- でも二人で連絡を取りたい
+
+という要望を叶えるべくAlexaとslackを繋いでコミュニケーションできるようなシステムを即席で作りました。    
+
+- 実際に組んだシステム
+    - Raspberry Pi に Amazon Voice Serviceを入れる
+    - Alexaからslackへ文字列を送信
+    - slackから文字を送信 -> Raspberry Piで発話
+
+- 使った技術
+    - Python3.6
+    - Raspberry Pi
+    - Tornado
+    - AWS
+        - Lambda
+        - S3
+    - Amazon Voice Service
+    - Amazon Echo カスタムスキル   etc.
+
+このシステムのアーキテクチャについてをメインにして話しますが、そんなことよりも、「やってみたい・作ってみたいという思いがあれば欲しいものは作れるんだよ！」というパッションが伝わるLTにしたいです。","Web programming including frameworks (Django / Flask / Pylons etc.), Project case studies, Python libraries extending and embedding python in hardware",,,,,ポスターセッションも同様の内容で提出していますが、ポスターセッションの場合はアーキテクチャのお話多め、LTの場合は「やってみたい・作ってみたいという思いがあれば欲しいものは作れるんだよ！」というパッションが伝わればOKな初心者の方向けのメッセージ多めで進行させる予定です。
+パブリッククラウドを支えるPython,"本LTでは以下のライブラリをどのようなユースケースで活用してパブリッククラウドを運用しているか？を紹介できればと考えております。
+
+* ネットワーク検証系
+    * netaddr
+    * scapy
+* 仮想化, コンテナのオペレーション
+    * docker-py
+    * VMware関連
+* OS, ミドルウェアの運用自動化
+    * ansible
+    * fabric
+* アプリケーションの開発
+    * flask
+    * click
+* etc","Flask, Ansible, Fabric, Scapy, netaddr, Docker, Network programming System administration Project case studies",,,,,
+プログラマのための量子アルゴリズム入門,"プログラマの目線で、次の内容についてお話しさせて頂きます。
+- 現在のコンピュータと量子コンピュータは何が違うのか？
+- 主な量子コンピュータの種類と特徴
+- 量子アルゴリズムの紹介
+- 量子アルゴリズムを実装できるPythonライブラリの紹介
+- さあ、量子アルゴリズムの世界に踏み出そう！",Programming tools,,,,,"数学科を卒業した後、ITエンジニアとして20年近く働いています。
+一般のプログラマが量子コンピュータを触る時代がいずれ来ると考えています。
+ただ、実際にプログラマが量子コンピュータを学ぼうとすると、難しい物理や数学の壁が立ちはだかっていると感じています。
+難しい物理や数学を知らないと量子コンピュータを理解できないのでしょうか？
+あくまでもプログラマの視点ですが、そんなことはないと考えています。
+そこで、プログラマに向けて、量子コンピュータで実現するアルゴリズム(量子アルゴリズム)についてご紹介します。"
+初心者が読み解くvenvのナカミ,"Pythonをインストールして「さあ始めよう！」と意気込んで，本やWebサイトの情報を見ながら独学を進める人の多くがはまるポイントとして，環境問題があります。
+環境問題といっても地球温暖化とかの話ではなく，Pythonの環境です。
+
+例えば，少なくない数の入門書がAnacondaというディストリビューションを使った環境構築を勧めています。Anacondaをインストールすることで，pandasやnumpy，scikit-learnなどのよく使いそうなライブラリはだいたいインストール済みの状態になります。これはこれで便利なのですが，Anacondaが対応していないライブラリをpipでインストールしたら「dependencyが〜」と言われて別のライブラリをバージョン指定してpipインストールした結果，Anacondaの世界が崩れてしまって今まで動いていたプログラムも動かなくなるという依存関係の沼にハマる，というのはよくある話です（Anacondaにも仮想環境の仕組みはありますし，決してAnacondaをディスろうとしているわけではないです）。
+
+たいがいの初心者（特に独学の人）はここで嫌になってしまったり，そこまでいかなくてもやろうとしていたことをあきらめたりしてしまいます。これはもったいない。
+
+この発表では，Python3.3から公式に組み込まれたvenvモジュールを題材に，その仕組みを理解した上で仮想環境構築ができるようになる，ということを目標にしています。
+
+",Programming tools,,,,,"## 目次
+
+- Python初心者がハマる環境問題あるある
+- 仮想環境って何？
+- 仮想環境はプロ向けの話じゃないです
+- venvとは　PEP405にも触れる
+- venvを使った仮想環境構築のやり方
+- Anacondaな人のvenvとの付き合い方
+
+## 想定している聴衆
+
+Pythonを始めたばかりの初心者〜仮想環境という話を聞いたことはあるがうまく使いこなせていない中級者
+
+## 聴く意味がない人
+
+すでに仮想環境を自由自在に使いこなしている人たち
+
+## なぜ私が？
+
+個人的な趣味としてPythonを始めて独習で4年間学んできた経験のなかでさまざまな環境問題にハマった体験を元に，「仮想環境はプロ限定ではなく，素人の我々も使いこなすことに意味がある」ということを伝えられると思います。"
+同人活動とPython製ノベルゲームエンジンRen'Pyの進化,"Ren'Pyと呼ばれるPython製のノベルゲームエンジンがある。Ren'Pyはノベルゲームを開発を主目的としたゲームエンジンであり、著者は7年間、本エンジンを同人(インディー)活動に使用してきた。さて、このRen'Pyは昨日、バージョン7.0のメジャーアップデートがリリースされ、非常に活発に更新されている。故に、この7年間で目覚ましい進化を遂げたと言える。筆者はライトニングトークを通して7年間の経験を元にRen'Pyの歴史を紐解きたいと思う。
+加えて、Ren'Pyはノベルゲームエンジンという特殊なジャンルではあるが、趣味の開発でPythonを扱うことの素晴らしさを伝えたいと考える。",GUI and games,,,,,"同人誌出版やセミナーを通してRen'Pyの扱い方などを広めている。　
+公式に同人誌がリツイートされた経験あり。
+https://twitter.com/renpytom/status/851813739225636864?s=19"
+型アノテーションとの格闘 700日,"近年、型ヒントが導入されたのを契機に Python における静的型付けが注目を集めています。Sphinxプロジェクトでは2016年10月に型アノテーションを付け始めました。
+本トークでは、静的型付けを利用しはじめてからの約2年間で得られたことや苦労したことなどの経験を共有します。
+
+* Python における静的型付け
+* 型チェックツール mypy
+* 型アノテーションをつけるまで
+* 型アノテーションの運用
+* メリット
+* デメリット
+* まとめ","Static typing, Type annotations",,,,,"SphinxはPython製のドキュメンテーションツールのひとつです。一定規模のコードベースで静的型付けを運用している利用事例として一定の知見があると考えます。
+発表者は、Sphinxのコミッタとして、型アノテーションを導入からその後のメンテナンスまで、一連の経験があります。"
+実践スクレイピング,"requests モジュールのようなHTTPクライアントを使ってスクレイピングをする小規模な趣味スクレイピングから、フレームワークであるScrapyを使った大規模な業務スクレイピングまで、実際に現場でクローラーを書いてきた経験からそれぞれの特長をお話しします。
+
+Scrapyについては主に以下のトピックについて紹介します。
+
+* Scrapy入門者がつまづくポイントの紹介(ライフサイクル、テストの書き方など)
+* 認証が必要なサイト、API Token を使ったWebAPIのスクレイピングなど良くあるパターンのベストプラクティス
+
+大規模なスクレイピングを行う際には、フレームワークを使ったコードの拡張性だけではなく、クローラーの実行環境にも柔軟な拡張性が必要になります。
+クラウドインフラ(AWS)にて、柔軟な拡張性かつ低コストを実現したアーキテクチャ設計を紹介し、その一例をお見せします。
+
+一方で、スクレイピングをする際には気を付けなければならない事もあり、クロールする範囲や、収集した情報の扱い方を誤ると法律違反になりかねません。
+個人情報保護法や著作権の観点から注意すべき点もご紹介します。","Python, Crawler, Scraping, AWS, Scrapy, Best practices",,,,,"私が勤めている株式会社scoutyでは、ソフトウェアエンジニアのヘッドハンティングサービスを提供しているのですが、エンジニアがよく使うSNS(GitHub, Qiita, Twitter, etc.)をクロールすることで人材データベースを構築しているため、業務でのクローラー開発経験があります。
+当初は requests モジュールを使ってクローラーを書いていたのですが、次第にクローラーの規模が大きくなって来たため、2017年の10月頃Scrapyでクローラーを書き直しました。
+また、個人情報に近いものをクロールして扱っているため、個人情報保護法や著作権的な観点で法律の専門家に相談しながら開発を行っており、そこで得られた知見も共有することができます。"
+心拍数の時系列分析をGoogle Colaboratoryでやってみた,"# 心拍数の時系列分析をGoogle Colaboratoryでやってみた
+
+## 概要
+
+メンタル具合をチェックする何かを作りたかった
+
+## したこと
+
+1. Xiaomi mibandで心拍数を取得
+2. 心拍数から心拍間隔(rri)を求める
+3. Lomb-Scargle ピリオドグラム法を使ってLF/HF値を求める
+4. グラフにして傾向を分析する
+5. 上司に見せて職場・通勤環境の改善をお願いする
+
+## 効果
+
+グラフからストレスを可視化するところまではできたのですが、そこから先がうまくいってません……",Machine learning and data science,,,,,"本トークの内容は小江戸らぐ発行の同人誌『LinuxUser 2018年夏号』に記載されるかもしれません。
+
+資料は英語で書きます。
+
+トークは日本語で予定しています。"
+怖くない！デプロイ〜Flask × Azure 2018年9月版〜（仮）,"### スピーカーについて
+私は3年目のソフトウェア・エンジニアです。  
+半年前にPythonを独学で始め、春からは業務でFlaskを使ってAPIの製造をしています。  
+経験不足もあると思うのですが、デプロイはハードルが高いと感じています。  
+本業のエンジニアにとってデプロイが難しいのだから、Pythonを始めたての人にはもっと難しいだろう、  
+なんとかデプロイのハードルを下げる方法はないだろうかと考えるようになりました。  
+（なにより、デプロイで苦労している自分自身がそんな話を聞きたいのです！）  
+
+### LTの内容
+4月から毎週のようにもくもく会に参加し、Flaskアプリケーションをデプロイするのに必要な知見を集めてきました。  
+6月時点でひとまずAzureにはデプロイできると言えるようになったのですが、手順が多すぎるため、Dockerコンテナを使った方法を調査中です。  
+このまま調査を進めて、デプロイ方法を改善していく予定です。  
+LTでは私が **中級者〜初心者の方におすすめできるデプロイ方法（2018年9月版）** を提案しようと考えています。  ",Web programming including frameworks (Django / Flask / Pylons etc.),,,,,"### 制限1: Azure × Flask
+私の経験から話をするため、LTで扱うクラウドプラットフォームはAzureに制限されます。  
+AzureのいくつかあるPaaSのうちWebAppと呼ばれるサービスに  
+Flaskアプリケーションをデプロイする方法のうち、おすすめできるものを紹介します。  
+
+### 制限2: 本番サーバ
+`python <ファイル名>`で動かすサーバは開発用のサーバであり、本番サーバとは別物という認識です。  
+このLTでは本番サーバを可能な限り簡単にデプロイする方法を提案します。  
+（Dockerコンテナで`python <ファイル名>`をCMDで指定する方法もあるようですが、本番サーバではないので取り上げません）  
+
+### 現在の調査状況
+過去に行ったLTの資料を共有します。
+
+- 2018年5月[WebAppsにデプロイは難しい](https://gitpitch.com/ftnext/2018_LTSlides/master?p=stapy_May_Flask_Azure)
+- 直近の状態（ブログより）：http://nikkie-ftnext.hatenablog.com/entry/2018/06/24/230259
+- 「ひとまずAzureにはデプロイできると言える」知見はまだ可視化できていないので、7月上旬にQiitaなどに記事化しようと思います。
+
+### このLTで扱わない予定のもの[^1]
+
+- Azure以外のプラットフォーム（AWSやherokuなど）
+- Flask以外のWebフレームワーク（Djangoなど）
+
+[^1]: LT優先で進めていきますが、個人的に興味もあるのでQiita記事などで補うことを考えています。"
+機械学習を活用したセーフサーチ高品質化の取り組み,"## 目的
+
+画像やテキストを分類する際によく使用される様々な技術と、私達の問題での効果を紹介します。
+これから画像・テキストの分類に取り組む方、取り組んでいる方へのヒントになれば幸いです。
+
+## 概要
+
+下記のトピックについて話をする予定です。
+
+### 問題設定
+
+* 実現したいこと
+* 環境の制約
+* 目標性能
+
+### 画像によるアダルト判定
+
+* データセットの作成
+* 著名なCNNモデルによる判定
+* 問題に合わせたCNN
+* データ拡張による過学習防止
+* 特徴量抽出と近傍検索による判定
+
+### テキストによるアダルト判定
+
+* データセットの作成
+* コーパスの作成
+    - 形態素解析
+    - パターンマッチによるノイズの除去
+* TF-IDF特徴量とSVM/GBDT/MLPによる判定
+* 単語分散表現とRNNによる判定
+* 単語分散表現とCNNによる判定","Machine learning and data science, chainer, gensim, scikit-learn, GBDT, SVM, MLP, CNN, LSTM, kneighbour",,,,,

@@ -1,0 +1,85 @@
+id,キャンセル,名前,プロフィール/Your Profile,タイトル,トークの概要/Talk abstract,audience_level,発表資料の言語/Language of presentation materials,発表で使用する言語/Presentation language,発表日,時間,部屋,階数
+1,0,福井 厚 Atsushi Fukui,2015年7月よりAWSでソリューション アーキテクトとして活動。DevOps、サーバーレス、コンテナ、モバイルなどAWS上でのソフトウェア開発を支援している。,「リモートペアプロでマントルを突き抜けろ！」AWS Cloud9でリモートペアプロ＆楽々サーバーレス開発,AWS Cloud9によるリモートペアプロの実演とAWS Lambdaファンクションの開発方法のご紹介,All,日本語のみ/Japanese Only,日本語/Japanese,2日目,11:15 - 12:00,C会議室,6F
+2,0,新倉 涼太,ニジボックスで主にwebアプリの開発をしている、エンジニア7年生。今回は業務関係ない個人研究のネタにて参戦,1次元畳み込みフィルターを利用した音楽データのオートエンコーダ,音は空気の振動することで作られる。音楽は特定の楽器によって演奏されているため、その空気振動からパターンを抽出することで、特徴量を抽出し、音楽データを圧縮することができると考えた。今回は1次元の畳み込みフィルタを使い機械学習的な手法により、音楽データの圧縮を試みた。,All,日本語のみ/Japanese Only,日本語/Japanese,2日目,15:45 - 16:15,小展示ホール,2F
+3,0,Mehul Patel,"Mehul is a Developer Tech by profession, an open source enthusiast and a maker by heart.",Adding JWT Authentication to Python and Django REST Framework Using Auth0,"Setting up an authentication layer is, without a doubt, one of the most challenging yet necessary tasks within any web application.",All,English Only,英語/English,2日目,15:45 - 16:15,コンベンションホール 梅,4F
+4,0,長谷場 潤也,主食はAndroid。主菜はWebバックエンド。副菜はWebフロントエンド。3時のおやつはスクレイピング。,AltJSとしてのPython - フロントエンドをPythonで書こう,PythonをJavaScriptに変換するTranscryptの機能を、jQuery、React Native等との連携方法を交えて紹介します。明日からPythonでフロントエンドを書きましょう。,Beginner,English Only,日本語/Japanese,2日目,16:30 - 17:00,D会議室,6F
+5,0,Denys Makogon,"Developer advocate, blogger, photographer, traveller, conference guy.
+",Applying serverless architecture pattern to distributed data processing,In this talk we will go through whole “serverless” thing: from decomposing app and its logic to microservices and further to smaller bits.,Intermediate,English Only,英語/English,1日目,13:30 - 14:15,特別会議室,3F
+6,0,Kajal Puri,,Build text classification models ( CBOW and Skip-gram) with FastText in python,,All,,,2日目,13:30 - 14:15,コンベンションホール 鶯,4F
+7,0,"Yuan-Che, Wonder, Chang","Wonder Chang, a Software Engineer from Taiwan.",Building Maintainable Python Web App using Flask,This talk will demonstrate how to build a maintainable web application with Flask.,Intermediate,English Only,英語/English,1日目,14:30 - 15:15,A+B会議室,1F
+8,0,Dror Ayalon,"Dror Ayalon is a software engineer, product manager, and interaction designer.",Creative Music Applications in Python,"The goal of this talk is to introduce attendees to tools and projects, that could be used to build creative music applications.",All,English Only,英語/English,1日目,16:30 - 17:00,小展示ホール,2F
+9,0,末田卓巳,"GROOVE X, Inc. 在籍。LinuxやFPGAなど低レイヤーを主に担当。",C拡張と共に乗り切るPython 2→3移行術,弊社での事例を元に、C拡張入りのパッケージを2/3両対応化する手法を紹介します。,Advanced,日本語のみ/Japanese Only,日本語/Japanese,2日目,15:45 - 16:15,D会議室,6F
+10,1,Alizishaan Khatri,,Detecting offensive messages using Deep Learning: A micro-service based approach,,All,,,2日目,14:30 - 15:00,コンベンションホール 梅,4F
+11,0,芝田 将,github: @c-bata. twitter: @c_bata_. 共訳書 エキスパートPythonプログラミング 改訂2版.,Django REST Framework におけるAPI実装プラクティス,Django REST Frameworkの公式ドキュメントは、非常にわかりやすくまとまっていますが、実際に業務で使おうとすると考えないといけないことはまだまだあります。本セッションでは、APIのRate Limitの実装などドキュメントで詳しく触れられていない実装プラクティス等を解説します。,Intermediate,日本語のみ/Japanese Only,日本語/Japanese,1日目,14:30 - 15:15,特別会議室,3F
+12,0,向山 裕介 (Yusuke Mukoyama),,Django を Zappaで構築してServerless Python のベストプラクティスを探る,,Intermediate,,,2日目,16:30 - 17:00,A+B会議室,1F
+13,0,Yasuaki Matsuda,好きな言葉はトイル(撲滅)です。株式会社アイリッジに所属しています。,Djangoアプリケーションにおけるトイル撲滅戦記,トイルとは手作業で繰り返し行われ自動化することが可能であり、戦略的で長期的な価値を持たず作業量がサービス成長に比例するものです。この発表を聞くとアプリケーションをSRE観点で改善できるようになります。,All,日本語のみ/Japanese Only,日本語/Japanese,2日目,13:30 - 14:15,コンベンションホール 梅,4F
+14,0,denzow,scoutyという会社ででDBやバックエンドを中心に活動している、Djangoが好きなエンジニアです。,Djangoだってカンバンつくれるもん(Django Channels + Vue),DjangoのライブラリであるDjango Channelsを使用して、Websocketを使ったアプリケーションの構築についてお話します。TrelloのようなカンバンアプリケーションをVue.jsと組み合わせて作成した際の話が中心になります。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,13:30 - 14:15,特別会議室,3F
+15,0,Kashun Yoshida,BeProudに所属するSoftware Developer。業務ではWebアプリケーション全般の開発を行う。プライベートではOSSのドキュメント翻訳にも携わる。,DjangoではじめるPyCharm実践入門,Pythonの開発をサポートするエディタや統合開発環境はさまざまですが、PyCharmはその中でも使いやすいツールの一つです。ここではDjangoを題材にして、そんなPyCharmの便利なポイントや使い方を紹介します。,All,日本語と英語/Japanese and English,日本語/Japanese,1日目,13:30 - 14:15,C会議室,6F
+16,0,Iskandar Setiadi,"I am an Indonesian software engineer working for HDE, Inc. in Tokyo, Japan.",From Data to Web Application: Anime Character Image Recognition with Transfer Learning,"In this talk, we will take a 30-minute journey converting raw data of anime character images to a web application with image recognition capability.",Intermediate,English Only,英語/English,2日目,15:45 - 16:15,A+B会議室,1F
+17,0,Michael Penkov,"Developer based in Sapporo. Writes code in ViM, rarely leaves the command line.",Fun with Python and Kanji,Kanji is hard to learn because there are thousands of characters. This talk brings Python and graph theory to the rescue.,All,English Only,英語/English,1日目,15:45 - 16:15,小展示ホール,2F
+18,0,Yuki Takino,長野のIT会社、日本システム技研 / クリエイティブアーキテクト。普段はPython/DjangoでWeb開発。,HomeSecurity with Python,このトークではIoTに焦点を当てて、身近な自宅でのセキュリティをPythonで構築した例をもとにIoTの開発事例を紹介します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,11:15 - 12:00,D会議室,6F
+19,0,松岡光,博士（理学）を取得後、自動車メーカー会社にてデータ分析に関わる。その後コンサルティングファームでデータ分析プロジェクトを歴任　東北大学にて協力研究員を拝命中　応用数理学会所属,How to Data Wrangling? Tips for using python libraries for big-data analysis including scikit-learn.,I’ll talk about how to choice the fasteter ways related to data science alogrithms such as Logistic regression / SVM /CLUSTERING .,Intermediate,English Only,英語/English,1日目,16:30 - 17:00,C会議室,6F
+20,0,池内 孝啓 / Takahiro Ethan Ikeuchi,株式会社catabira 代表取締役 CEO。Go や React、Python、Solidity によるアプリケーション開発のほか、Webデザインなどを幅広く手がける。,Integrate Full-text Search service with Django,Django REST Framwork をベースに実装されたプロダクトに Elasticsearch を組み込んだ実例を元に、全文検索システムをプロダクトに導入するうえでの課題や設計指針、プラクティスについて発表します。,Intermediate,English Only,日本語/Japanese,2日目,11:15 - 12:00,A+B会議室,1F
+21,0,Tomoko Furuki,趣味でPEP(Python Enhancement Proposal)の参照関係を可視化するWebページを作っています。仕事では画像処理実験やデータ処理等にPythonを使用。,Interactive Network Visualization using Python 〜 NetworkX + BokehでPEPの参照関係を可視化する,SNSの友達関係や論文の引用関係など、世の中には何かと何かの「つながり」の構造がたくさん存在します。このようなグラフ構造をPythonを使ってインタラクティブに可視化する手段として、ネットワーク解析ライブラリであるNetworkXと可視化ライブラリであるBokehを組み合わせる方法を紹介します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,1日目,15:45 - 16:15,C会議室,6F
+22,0,David Low,"Cofounder at Pand.ai, a start-up that specialises in building ML and NLP solutions","Interpretable Machine Learning, making black box models explainable with Python!",Ever wonder how a Machine Learning model makes predictions? I’ll be showing how to demystify black-box ML models with Python.,Beginner,English Only,英語/English,2日目,15:45 - 16:15,C会議室,6F
+23,0,driller,Python x 金融のコミュニティ「fin-py」を主催。共著に「PythonユーザのためのJupyter［実践］入門」,Jupyterで広がるPythonの可能性,Jupyter Notebookを使いこなしていますか？便利そうな機能は色々ありそうだけど、なんとなく使っている…なんてもったいない。Jupyterの便利な機能、データ分析だけではないさまざまな使い方を紹介します。,All,日本語のみ/Japanese Only,日本語/Japanese,1日目,15:45 - 16:15,コンベンションホール,4F
+24,0,澁谷 典明/Yoshiaki Shibutani,"JVM界隈を主戦場にしています。 Pythonほぼ初心者。
+現在PythonのJVM処理系、cafebabepyの実装のためにPythonの構文、仕様について理解すべく奮闘中。 ",JVM上で動くPython3処理系cafebabepyの実装詳解,cafebabepyというJVM上で動くPython3処理系を実装しています。 本セッションではPython3の言語仕様に悪戦苦闘し、どのように実装していったのかをお話します。,Intermediate,日本語のみ/Japanese Only,日本語/Japanese,2日目,13:30 - 14:15,A+B会議室,1F
+25,0,片寄 里菜 / Lina Katayose,空を飛ぶことに憧れ、航空宇宙学を専攻。将来は自分の作った航空機で空を飛びたいと思っている。(株)moegi代表,Make a Drone using RaspberryPi and Google VoiceKit by Python,I introduce the technique that I made a Drone using RaspberryPi and Google VoiceKit by Python code.,All,日本語と英語/Japanese and English,日本語/Japanese,2日目,14:30 - 15:00,小展示ホール,2F
+26,0,増田泰,株式会社MonotaRO データマーケティング部門所属。Python2.0時代からPythonを使い始める。Python関連のドキュメント翻訳多数。PyCon JP発起メンバー。,Migrating from Py2 application to Py3: first trial in MonotaRO / Python2 から Python3 への移植: MonotaRO での取り組み,MonotaRO は 2000 年代初頭から、ECサイトと基幹系をほとんどPythonで内製してきました。この講演では、 Python 2 系の開発終了を前に、社内で進めているPython 3 への移行の最初の取り組みをお話します。,All,日本語と英語/Japanese and English,日本語/Japanese,2日目,11:15 - 12:00,小展示ホール,2F
+27,0,大元 司,2015年に株式会社ドワンゴに入社。機械学習を利用する研究・サービス開発に従事する。,niconicoにおけるコンテンツレコメンドの取り組み,niconicoサービス内で運用されているレコメンダーの多くはPythonで開発されていますniconicoサービス内でのレコメンダー開発と運用経験から得られた知見をご紹介します。,All,日本語と英語/Japanese and English,日本語/Japanese,2日目,11:15 - 12:00,コンベンションホール,4F
+28,0,横石和貴,NECソリューションイノベータ株式会社にて分析プラットフォームの開発に従事。最近はフロントエンドとバックエンドの開発を担当。,Notebook as Web API: Turn your notebook into Web API,データサイエンスにおいて予測モデルを活用するためにアプリケーションをつくるにはいくつかの課題があります。Jupyter Notebookを活用してそれらの課題をどのように解決するかお話します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,14:30 - 15:00,D会議室,6F
+29,1,sandeep saurabh,"Project Manager(A.I. Labs) ,BRIDGEi2i Analytics Solutions,Bangalore",Probabilistic Programming and Bayesian Deep Learning (comparing Edward and ZhuSuan python libraries),"Bayesian deep learning ,benefits of probabilistic programming and deep learning to generate scalable model for uncertainity estimates
+
+",All,English Only,英語/English,1日目,14:30 - 15:15,D会議室,6F
+30,0,Daisuke Saito,早稲田大学基幹理工学部情報理工学科 講師（任期付き）。2018年3月早稲田大学博士後期課程修了。博士（工学）。 ソフトウェア工学、工学教育などの研究に従事。,PyCon JP における子ども向けワークショップの活動事例と実施の意義,PyCon JP では2015年より子どもを対象としたPythonのワークショップを企画し開催してきた。本トークでは2015年から実施してきたワークショップの内容および結果について報告する。また、世界のPyConで実施されている、子ども向けワークショップとPyCon JPの活動との違いを比較する。,All,日本語と英語/Japanese and English,日本語/Japanese,1日目,13:30 - 14:15,D会議室,6F
+31,0,Pavlos Christoforou,Pavlos Christoforou currently serves as the CEO of Point Nine.,"Python, AWS and FinTech","This is a talk on how Point Nine, has leveraged Python to enter into a complex fin tech space processing millions of trades per day at a global scale",All,English Only,英語/English,2日目,16:30 - 17:00,C会議室,6F
+32,0,西谷圭介,アマゾン ウェブ サービス ジャパン株式会社所属。アプリ開発者向けにコンテナ/DevOps/サーバーレスといった技術領域におけるエンゲージメントや技術支援までをリードしています。,Pythonistaに贈るコンテナ入門,マイクロサービスやCI/CDの実現を目的として検討されることが多いコンテナ技術ですが、本セッションではコンテナを使ったことがない方、またはほとんど知らない方向けに、コンテナそのものの概要に加え、アプリケーション開発者がコンテナを活用することによるメリットや実際の利用についてデモを交えてご紹介します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,13:30 - 14:15,D会議室,6F
+33,0,Shinichi NAKAGAWA（野球エンジニア）,"株式会社ネクストベース野球エンジニア兼CTO。
+Pythonもくもく自習室（#rettypy）オーガナイザー。
+野球とPythonを生業とする「野球の研究者」。",Pythonistaの選球眼（せんきゅうがん） - エンジニアリングと野球の目利きになる技術,"PythonのWebアプリ・データ分析における、
+
+「ライブラリ・フレームワーク選択の勘どころ」
+「手段を選択するための「目利き」力を磨く」
+
+の実践例および、
+
+「野球におけるボールの選び方と飛ばし方」
+
+を「選球眼（せんきゅうがん）」というテーマで紹介します。",Intermediate,日本語のみ/Japanese Only,日本語/Japanese,1日目,16:30 - 17:00,A+B会議室,1F
+34,0,小栗　潤一,広島在住。将棋、パズル、ゲームが好きでとにかく頭を使うことが好き。今興味があることはPythonと機械学習。,Pythonで「お絵描きパズル」を解いてみた。,Python初心者が誰でも書ける簡単なPythonコードを使ってお絵描きパズルに挑みます。解き方に沿ってPythonコードの解説・Jupyter上で難問を解く過程、経過を表示するデモをお見せします。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,16:30 - 17:00,コンベンションホール 鶯,4F
+35,0,tell-k,情弱プログラマー,Pythonでざっくり学ぶUnixプロセス,Unixプロセスの基礎的な部分をPythonを通して紹介します。 多くのプログラマが経験するであろうUnix系のシステムで どのようにプログラムが動いてるかを簡単なPythonコードで 交えながら、初心者の方でもわかるようにお話します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,14:30 - 15:00,コンベンションホール 鶯,4F
+36,0,新井 正貴,株式会社SQUEEZE所属。CodeZineにて『モダンDjango入門』の連載や、「Pythonもくもく会」を主催。,Pythonで解く大学入試数学,このトークでは、sympy・numpy・scipyなどPythonを通して数学にふれる楽しさを紹介します。数学のレベルとしては、高校数学や大学入試問題を題材として基礎的なものを扱う予定です。,All,日本語のみ/Japanese Only,日本語/Japanese,1日目,16:30 - 17:00,コンベンションホール,4F
+37,0,田中 慎太郎,長野市の会社員です。普段はWebの仕事をしていて、Python/Djangoを用いたバックエンドの構築からフロントエンド開発まで手がけます。,Pythonで始めるウェブスクレイピング実践入門,Pythonがスクレイピングの用途に使われるようになって久しいですが、まだまだスクレイピングのためのライブラリは進化を遂げています。 近年リリースされたライブラリや、その使い方、比較、実践的なテクニックなどを紹介します。,All,日本語のみ/Japanese Only,日本語/Japanese,2日目,16:30 - 17:00,コンベンションホール 梅,4F
+38,0,Tatsuya Kobayashi,小林達也（@kobanyn）、（株）日本システム技研、Webエンジニア。IoTに興味があり、いろんなガジェットを試して日々奮闘中。,Pythonで時系列のデータを分析してみよう。,"IoTが盛り上がる中、初心者の方には、データを取得してからそのデータをどうするのか 悩まれている人が多いと思います。
+その取得したデータを解析するpandas、jupyter、matplotlib、StatsModelsを紹介し、生データを可視化します。",Beginner,日本語のみ/Japanese Only,日本語/Japanese,1日目,15:45 - 16:15,A+B会議室,1F
+39,0,大山匠,株式会社ARISE analytics データサイエンティスト,Pythonによる異常検知入門,統計的手法から、機械学習やDeep Learningを用いた様々な異常検知アルゴリズムの概要、それらのPythonでの利用方法、また実際のアプリケーションに組み込む場合のTIPSなどをご紹介します。,Intermediate,日本語のみ/Japanese Only,日本語/Japanese,2日目,15:45 - 16:15,特別会議室,3F
+40,0,北神雄太,ハードウェアとPythonを組み合わせた提案を行い続け、IoTもチョットデキル人。Intel Edisonの本も書いたPythonとLinuxとオープンソース文化が好き。,Pythonを使ったハードウェア開発について,"
+
+RaspberryPiやIoTで必要となるハードウェア開発技術、当日は温湿度センサーや気圧、K型熱電対等、実際に科学の実験を行いながらPythonとの関わりを説明していきます。",All,日本語のみ/Japanese Only,日本語/Japanese,1日目,14:30 - 15:15,C会議室,6F
+41,0,Yusuke Nishio,"株式会社ブレインパッド、Webアプリケーションエンジニア。
+プライベートDMP開発を経て、広告入稿ツールの開発に従事。",Python研修の作り方-Teaching Is Learning-,"私が所属する株式会社ブレインパッドでは新卒研修の一環としてPython研修を実施しています。
+講師の立場としてどのように準備したのか、どんな学びがあったのかを中心にお話させて頂きます。",All,日本語のみ/Japanese Only,日本語/Japanese,2日目,15:45 - 16:15,コンベンションホール 鶯,4F
+42,0,Tsukagoshi Keisuke,AWS Mobile Specialist Solution Architect,REST API に疲れたあなたへ贈る GraphQL 入門,「 GraphQL vs REST 」など、Rest APIの次のパラダイムとして注目されている GraphQL 。本セッションは GraphQL の入門セッションという立ち位置で、 GraphQL とはなんなのかという説明や GraphQL を使い始める方法を解説します。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,2日目,13:30 - 14:15,C会議室,6F
+43,0,Hideo Hattori,"Software Engineer at Tech Bureau, Corp.",Rust と Python,速度や安全性、並行性等で注目を集めているプログラミング言語RustとPythonを組み合わせて、Python拡張モジュールを書く方法を紹介します。,Intermediate,日本語と英語/Japanese and English,日本語/Japanese,1日目,16:30 - 17:00,特別会議室,3F
+44,0,Takeshi KOMIYA,Time Intermedia所属。Sphinx-Users.jpの運営のひとり。Sphinxやblockdiagの開発を行うOSS開発者。,Sphinx-2.0 とドキュメントの未来,SphinxはPythonの公式リファレンス用のツールとして生まれました。最初のリリースから10年が経過したいま、Sphinxは2.0のリリースに向けて開発が進められています。このトークでは、来年にリリースされるSphinx2.0ではどこが変わり、何ができるようになるのかを紹介します。,All,日本語と英語/Japanese and English,日本語/Japanese,2日目,13:30 - 14:15,小展示ホール,2F
+45,0,Hayao Suzuki,株式会社アイリッジ所属。大学院でSage Mathを使うためにPythonを使い始めた。,SymPyによる数式処理,SymPyはPythonで実装された数式処理ライブラリです。Pythonが動く環境があれば簡単に複雑な微分や積分、行列の計算を自分のPCで実行することができます。この発表では、SymPyの使い方やその面白さを伝えます。,Intermediate,日本語と英語/Japanese and English,日本語/Japanese,2日目,11:15 - 12:00,特別会議室,3F
+46,0,Hsiaoming Yang,Author of Authlib and maintainer of Flask web application framework and related libraries.,The Modern OAuth 2.0,"A detail introduction of the modern OAuth 2.0 framework. The history, the RFCs, and how to implement the provider in Python.",Intermediate,English Only,英語/English,1日目,15:45 - 16:15,特別会議室,3F
+47,0,Parul Sethi,,Visualizing Topic Models,,All,,,2日目,16:30 - 17:00,小展示ホール,2F
+48,0,Takayuki Shimizukawa,#beproud/#sphinxjp/#pyhack/Sphinxのコミッター。Pythonは2003年から使い始め、最近は公私ともにPythonを教える立場で多く活動している。,Webアプリケーションの仕組み,Webアプリ関連技術の仕組みについて紹介します。そこから、今のWebアプリケーション開発に使われるフレームワークやスタックの利点紹介します。仕組みを理解してさらに加速しましょう。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,1日目,13:30 - 14:15,コンベンションホール,4F
+49,0,Luka Sterbic,Software Engineer @ Facebook London,Why you should care about types: Python Typing in the Facebook Backend,Why you should care about types: Python Typing in the Facebook Backend,All,English Only,英語/English,1日目,13:30 - 14:15,小展示ホール,2F
+50,0,あべんべん,北海道（苫小牧）生まれ。現在は金融機関に所属。仕事の傍らで複数のエンジニア向コミュニティの運営や、テックイベントの企画、ブロックチェーンプロダクトの企画開発、執筆等に関わってます。,WILDCAT SDKは量子コンピュータビジネスの味方となるのか！？,量子コンピュータのライブラリもPythonが主流です。この発表では、国産量子コンピュータSDKであるWILDCATの解説と、量子コンピュータの今後の展望についてお話しします。,Intermediate,日本語のみ/Japanese Only,日本語/Japanese,2日目,14:30 - 15:00,C会議室,6F
+51,0,Atsushi Odagiri,オープンコレクター,あなたと私いますぐパッケージン,"Pythonでパッケージを作成したり利用したりするためのツール群の説明と、パッケージング周りのPEPの更新から今後どのようにツールが更新されそうなのか解説します。 
+
+- pypi リニューアル
+- pip 18
+- pipenv
+- PEP 518",Beginner,日本語のみ/Japanese Only,日本語/Japanese,1日目,14:30 - 15:15,コンベンションホール,4F
+52,0,Yukio Okuda,コンピュータを使い始めて４０数年、いろんな現場を経験して来たフリーランスです。,"オンザフライ高速化パッケージの比較：Numba, TensorFlow, Dask, etc","PythonのCPUバウンド処理を高速化する、オンザフライ・パッケージをCPU／CUDAで動かし、使いやすさ、問題点、高速化率をその基本と共にお話します。
+",All,English Only,日本語/Japanese,1日目,14:30 - 15:15,小展示ホール,2F
+53,0,千葉 竜介,学生時代の専門は数理最適化．メルカリ SysML チームで機械学習基盤を作っています．,メルカリにおける AI 活用事例,メルカリの機械学習基盤や機械学習サービスは主に Python 製です．それらについてかんたんに網羅的にお話しします．さらに，現在開発中の社内用の画像検索の仕組みについて詳しくお話しする予定です．,All,日本語のみ/Japanese Only,日本語/Japanese,1日目,15:45 - 16:15,D会議室,6F
+54,0,本田勝寛,主にスタートアップにてソーシャルゲーム・アドテク・シェアリングエコノミー領域に携わる。現在リーガルテック領域にてサービス開発中。,契約書データ関連のAI開発に伴う、前処理及び匿名化処理についての実例,契約書データ(日本語)についてAI開発を推進するために、 データの前処理、及び匿名化をPythonにて作りました。 その一連のフローやデータの持ち方、処理の流れを紹介します。,Intermediate,日本語のみ/Japanese Only,日本語/Japanese,2日目,14:30 - 15:00,特別会議室,3F
+55,0,杉山　剛,Python歴4年の独学趣味プログラマー。仕事は事務系サラリーマン歴30年。,自分が欲しいものをPythonで書く方法(Python for Myself),「何か作ってみたい。でもどうすればよいかがわからない」というPython初心者は多いです。ここでは基本を学んだ初心者が「自分が欲しいものをPythonで書く」ための方法についてお話しします。,Beginner,日本語のみ/Japanese Only,日本語/Japanese,1日目,16:30 - 17:00,D会議室,6F
+56,0,貫井 駿,競馬人工知能界のサラブレッド。好きな馬はハーツクライ。,実践・競馬データサイエンス,競馬は豊富な種類のデータが毎週追加されるという点で、機械学習の対象としてエキサイティングなドメインです。本講演では、2年間の競馬人工知能開発から得られた予測モデル構築の実践的なノウハウを紹介します。,Advanced,日本語と英語/Japanese and English,日本語/Japanese,1日目,13:30 - 14:15,A+B会議室,1F
+57,0,谷津真樹/Masaki Yatsu,フリーランス・ソフトウェアエンジニアJ,複数アプリケーションのプロセスとログを管理するための新しいツールと手法,開発環境において必要な、軽量で手軽な複数アプリケーションの起動・連携管理、自動テスト、ログの集約・フィルタリングを行うためのツール「Jaffle」について解説します。また、開発環境のための新たな(デバッグ)ログ管理手法を提案します。,Intermediate,日本語と英語/Japanese and English,日本語/Japanese,2日目,14:30 - 15:00,A+B会議室,1F
+58,0,森永雄也,東京大学総合文化研究科在学、機械学習によるNLPと情報検索を専攻。株式会社ヴァズにてインターン中のAIエンジニア見習い。,料理写真が美味しく撮れる！ 開発現場から覗くAI料理カメラの裏側,料理が「美味しそう！」に撮れる瞬間を教えてくれるAI料理カメラは、お料理SNSであるSnapDishの目玉機能です。背景技術から現場の試行錯誤まで、AI料理カメラの裏側を担当エンジニアがお話しします。,Intermediate,日本語と英語/Japanese and English,日本語/Japanese,2日目,16:30 - 17:00,特別会議室,3F
