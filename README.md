@@ -1,2 +1,2 @@
-# share
-This repository is for share, not develop
+# python-sandbox
+A repository is used for misc tasks.
