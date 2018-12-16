@@ -102,3 +102,6 @@ ENV/
 
 # Node 
 node_modules
+
+# Catboost
+catboost_info/
