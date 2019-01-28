@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dask = {extras = ["complete"]}
+msgpack-python = { git = 'https://github.com/msgpack/msgpack-python', ref = 'v0.6.1' }
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
