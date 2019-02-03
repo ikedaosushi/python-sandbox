@@ -1,0 +1,14 @@
+version: '3'
+services:
+  main:
+    build: .
+    image: pipfile_image
+    volumes:
+      - ./:/root/workspace
+    env_file:
+      - .dockerenv
+    volumes:
+      - site_package:/usr/local/lib/python3.7/site-packages
+volumes:
+  site_package:
+    driver: local
