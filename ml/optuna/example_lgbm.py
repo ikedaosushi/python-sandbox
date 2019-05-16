@@ -37,7 +37,7 @@ if __name__ == "__main__":
     model = LGBMClassifier()
     model.fit(X_train, y_train)
     print(model.score(X_test, y_test))
-    # => 0.82
+    # => 0.8156
 
     # OptunaでHyperParamer探索
     f = partial(objective, X_train, y_train)
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     # [I 2019-05-11 18:17:09,431] Finished trial#99 resulted in value: 0.47059004326010623. Current best value is 0.18394898478806176 with parameters: {'kernel': 'rbf', 'C': 7.660525691175324, 'gamma': 0.013116664828190997}.
 
     # 最適化Parameter
-op_model = LGBMClassifier(**study.best_params)
-op_model.fit(X_train, y_train)
-print(op_model.score(X_test, y_test))
-    # => 0.815
+    op_model = LGBMClassifier(**study.best_params)
+    op_model.fit(X_train, y_train)
+    print(op_model.score(X_test, y_test))
+    # => 0.7988
