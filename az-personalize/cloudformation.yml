@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: This CloudFormation template to create Amazon Personalize Stacks.
+ 
+Parameters:
+  S3BucketName:
+    Type: String
+    Default: amazon-personalize-example-bucket
+ 
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${S3BucketName}
+      AccessControl: Private
+  S3BucketPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Statement:
+          Action:
+             - "s3:GetObject"
+             - "s3:ListBucket"
+          Effect: "Allow"
+          Resource:
+            - !Sub "arn:aws:s3:::${S3BucketName}"
+            - !Sub "arn:aws:s3:::${S3BucketName}/*"
+          Principal:
+            Service: "personalize.amazonaws.com"
+  IAMRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          Effect: "Allow"
+          Principal:
+            Service:
+              - "ec2.amazonaws.com"
+          Action:
+            - "sts:AssumeRole"
+          Principal:
+            Service: "personalize.amazonaws.com"
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AmazonPersonalizeFullAccess'
+
+Outputs:
+  S3BucketName:
+    Value: !Ref S3Bucket
+  IAMRoleArn:
+    Value: !GetAtt [ IAMRole, Arn ]
