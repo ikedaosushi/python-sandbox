@@ -1,0 +1,3 @@
+{"city": "tokyo", "temperature": 6}
+{"city": "osaka", "temperature": 5}
+{"city": "taipei", "temperature": 17}
