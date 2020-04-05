@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+    # postgres:
+    #     image: postgres:9.6
+    #     environment:
+    #         - POSTGRES_USER=airflow
+    #         - POSTGRES_PASSWORD=airflow
+    #         - POSTGRES_DB=airflow
+    #         - PGDATA=/var/lib/postgresql/data/pgdata
+    #     volumes:
+    #         - pgdata:/var/lib/postgresql/data/pgdata
+
+    webserver:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        # depends_on:
+        #     - postgres
+        environment:
+            - LOAD_EX=n
+            - EXECUTOR=Local
+        volumes:
+            - ./dags:/usr/local/airflow/dags
+            # - ./config/airflow.cfg:/usr/local/airflow/airflow.cfg
+        ports:
+            - "8080:80"
+        command: python -m http.server 80
