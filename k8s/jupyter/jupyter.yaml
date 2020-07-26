@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter-notebook-deploy
+  labels:
+    app: jupyter-notebook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter-notebook
+  template:
+    metadata:
+      labels:
+        app: jupyter-notebook
+    spec:
+      containers:
+      - name: minimal-notebook
+        image: jupyter/minimal-notebook:latest
+        ports:
+        - containerPort: 8888
+        command: ["start-notebook.sh"]
+        args: ["--NotebookApp.token=''"]
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jupyter-notebook-svc
+spec:
+  type: NodePort
+  selector:
+    app: jupyter-notebook
+  ports:
+  - port: 80
+    targetPort: 8888
+    protocol: TCP
+    name: jupyter-notebook-port
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jupyter-notebook-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: jupyter-notebook-svc
+          servicePort: 80
